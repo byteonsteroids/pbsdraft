@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PBSMUN | Pace British School Model United Nations</title>
+    <link rel="icon" type="image/x-icon" href="/1_1770817820402_2cg59.png">
+    <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/xb-niloofar" type="text/css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Color Palette & Variables */
+        :root {
+            --navy-blue: #161a29;
+            --light-navy: #1f253a;
+            --gold: #d4c08b;      
+            --white: #ffffff;
+            --gold-shadow: rgba(212, 192, 139, 0.3);
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Stable, Crash-Free Solid Background */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--navy-blue);
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Custom Scrollbar */
+        body::-webkit-scrollbar { width: 10px; background: var(--navy-blue); }
+        body::-webkit-scrollbar-thumb { background-color: var(--gold); border-radius: 5px; }
+
+        h1, h2, h3, h4 { font-family: 'XBNiloofarRegular'; font-weight: normal; font-style: normal; }
+
+        /* --- NAVIGATION --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            background-color: var(--light-navy);
+            border-bottom: 2px solid var(--gold);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5rem;
+            font-family: 'XBNiloofarRegular';
+            color: var(--white);
+            text-decoration: none;
+            letter-spacing: 2px;
+        }
+        .nav-logo img { height: 40px; width: auto; }
+
+        .nav-links { list-style: none; display: flex; gap: 2rem; align-items: center; }
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .nav-links a:hover { color: var(--gold); }
+
+        /* Dropdown Styles */
+        .dropdown { position: relative; display: flex; align-items: center; }
+        .dropdown-content {
+            visibility: hidden;
+            opacity: 0;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translate(-50%, 15px); 
+            background-color: var(--light-navy);
+            min-width: 260px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+            border: 2px solid var(--gold); 
+            border-radius: 10px; 
+            z-index: 1001;
+            overflow: hidden;
+            margin-top: 15px; 
+            transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s; 
+        }
+
+        .dropdown-content a {
+            color: var(--white);
+            padding: 15px 25px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border-bottom: 1px solid rgba(212, 192, 139, 0.15);
+            transition: background-color 0.3s ease, color 0.3s ease, padding-left 0.3s ease;
+        }
+        .dropdown-content a:last-child { border-bottom: none; }
+        .dropdown-content a:hover {
+            background-color: rgba(212, 192, 139, 0.15); 
+            color: var(--gold);
+            padding-left: 32px;
+        }
+
+        @media (min-width: 769px) {
+            .dropdown:hover .dropdown-content {
+                visibility: visible;
+                opacity: 1;
+                transform: translate(-50%, 0); 
+            }
+        }
+
+        .hamburger { display: none; cursor: pointer; font-size: 2rem; color: var(--gold); user-select: none; padding: 0.5rem; }
+
+        /* Hero Section */
+         header {
+            text-align: center; padding: 2rem; min-height: calc(100vh - 80px); 
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            background: linear-gradient(rgba(22, 26, 41, 0.88), rgba(22, 26, 41, 0.88)), 
+            url('https://static01.nyt.com/images/2019/09/27/world/un-explainer1/un-explainer1-articleLarge.jpg?quality=75&auto=webp&disable=upscale');
+            background-size: cover; background-position: center; background-attachment: fixed;
+            border-bottom: 1px solid rgba(212, 192, 139, 0.15);
+        }
+
+        /* Fix background-attachment scroll lag on mobile */
+        @media (hover: none) and (pointer: coarse) {
+            header { background-attachment: scroll; }
+        }
+
+        .hero-logo { max-width: 250px; margin: 0 auto 2rem auto; display: block; filter: drop-shadow(0px 10px 15px rgba(0,0,0,0.5)); animation: heroFadeIn 1.5s ease-out forwards; }
+        .hero-title { font-size: 4rem; margin: 0 auto 0.5rem auto; text-align: center; letter-spacing: 2px; text-shadow: 0 0 20px var(--gold-shadow); opacity: 0; animation: heroFadeInUp 1.5s ease-out 0.3s forwards; }
+        .hero-subtitle { font-size: 1.5rem; font-weight: 300; margin: 0 auto 3rem auto; text-align: center; color: var(--white); opacity: 0; animation: heroFadeInUp 1.5s ease-out 0.6s forwards; }
+
+        .countdown-container { display: flex; gap: 1.5rem; margin: 0 auto 3rem auto; flex-wrap: wrap; justify-content: center; align-items: center; opacity: 0; animation: heroFadeInUp 1.5s ease-out 0.9s forwards; }
+        .time-box { background-color: rgba(212, 192, 139, 0.1); border: 2px solid var(--gold); padding: 1.5rem; border-radius: 8px; min-width: 120px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+        .time-box span { display: block; font-size: 2.5rem; font-weight: 700; font-family: 'XBNiloofarRegular'; color: var(--gold); opacity: 1; user-select: none; pointer-events: none; }
+        .time-box p { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; margin-top: 0.5rem; }
+
+        .btn {
+            background: linear-gradient(135deg, var(--gold) 0%, #ad9963 100%); color: var(--navy-blue); padding: 1rem 2.5rem;
+            font-size: 1.1rem; font-weight: 600; text-decoration: none; border-radius: 5px; border: none; cursor: pointer; display: inline-block; margin: 0 auto;
+            opacity: 0; box-shadow: 0 4px 15px var(--gold-shadow); animation: heroFadeInUp 1.5s ease-out 1.2s forwards; transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+        }
+        .btn:hover { background: var(--white); box-shadow: 0 8px 25px rgba(255,255,255, 0.3); transform: translateY(-3px); }
+
+        .section-container { padding: 5rem 10%; }
+        .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 3rem; position: relative; text-shadow: 0 0 10px var(--gold-shadow); color: var(--white); }
+        .section-title::after { content: ''; width: 80px; height: 3px; background: linear-gradient(90deg, transparent, var(--gold), transparent); display: block; margin: 1rem auto 0; }
+        .bg-light { background-color: var(--light-navy); }
+
+        /* Standard Animations with GPU Acceleration to fix scroll lag */
+        .scroll-reveal { 
+            opacity: 0; 
+            transform: translateY(40px); 
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out; 
+            will-change: opacity, transform; 
+            backface-visibility: hidden; 
+        }
+        .scroll-reveal.show { opacity: 1; transform: translateY(0); }
+
+        .about-content { text-align: center; max-width: 800px; margin: 0 auto; font-size: 1.1rem; line-height: 1.8; }
+        #more-about-btn { margin-top: 2rem; animation: none; opacity: 1; }
+
+        /* Modal Styles */
+        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; overflow: hidden; background-color: rgba(15, 18, 30, 0.95); opacity: 0; transition: opacity 0.3s ease; }
+        .modal.show { display: block; opacity: 1; }
+        .modal-content { background-color: var(--light-navy); margin: 3% auto; padding: 3rem; border: 2px solid var(--gold); border-radius: 12px; width: 90%; max-width: 1100px; position: relative; box-shadow: 0 0 40px rgba(0,0,0,0.8), 0 0 15px var(--gold-shadow); transform: translateY(-30px); transition: transform 0.4s ease-out; }
+        .modal.show .modal-content { transform: translateY(0); }
+        .modal-content h2 { color: var(--gold); text-shadow: 0 0 10px var(--gold-shadow); }
+        
+        .close-modal { 
+            color: var(--gold); position: absolute; top: 15px; right: 25px; 
+            font-size: 40px; font-weight: bold; cursor: pointer; transition: color 0.3s ease; 
+            padding: 5px 15px; z-index: 10;
+        }
+        .close-modal:hover { color: var(--white); text-shadow: 0 0 15px var(--gold); text-decoration: none; }
+
+        .scrollable-content { max-height: 70vh; overflow-y: auto; padding-right: 1.5rem; text-align: left; border-top: 1px solid rgba(212, 192, 139, 0.3); padding-top: 1.5rem; }
+        .scrollable-content h3 { color: var(--gold); font-size: 1.8rem; margin-top: 2rem; margin-bottom: 0.8rem; line-height: 1.3; }
+        .scrollable-content p { margin-bottom: 1.2rem; font-size: 1.05rem; color: #e0e0e0; line-height: 1.8; }
+        .scrollable-content::-webkit-scrollbar { width: 8px; }
+        .scrollable-content::-webkit-scrollbar-track { background: rgba(22, 26, 41, 0.5); border-radius: 4px; }
+        .scrollable-content::-webkit-scrollbar-thumb { background: linear-gradient(to bottom, var(--gold), #ad9963); border-radius: 4px; }
+
+        .founder-section { display: flex; gap: 2.5rem; align-items: center; margin-bottom: 1.5rem; margin-top: 0.5rem; }
+        .founder-text { flex: 1; }
+        .founder-text p { margin-bottom: 0; }
+        
+        .founder-photo { 
+            width: 160px; 
+            height: 160px; 
+            flex-shrink: 0; 
+            border: 3px solid var(--gold); 
+            border-radius: 20px; 
+            background-color: var(--navy-blue); 
+            box-shadow: 0 0 15px rgba(212, 192, 139, 0.2); 
+            overflow: hidden; 
+            display: flex; justify-content: center; align-items: center; 
+        }
+        .founder-photo img { width: 100%; height: 100%; object-fit: cover; }
+
+        /* SG Formal Intro Section - Right Center Layout */
+        .sg-intro-container { 
+            display: flex; 
+            flex-direction: row; 
+            align-items: center; 
+            justify-content: space-between; 
+            gap: 4rem; 
+            width: 85vw; 
+            min-height: 75vh; 
+            max-width: 1400px; 
+            margin: 0 auto 4rem auto; 
+            background-color: var(--light-navy); 
+            padding: 4rem; 
+            border-radius: 15px; 
+            border: 1px solid rgba(212, 192, 139, 0.15); 
+            border-top: 4px solid var(--gold); 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4); 
+        }
+        
+        .sg-profile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex-shrink: 0;
+            width: 320px;
+        }
+
+        .sg-intro-text { 
+            text-align: left; 
+            flex: 1; 
+        }
+        
+        .sg-intro-text h3 { 
+            color: var(--gold); 
+            font-size: 2.2rem; 
+            margin-bottom: 2rem; 
+            font-family: 'XBNiloofarRegular', sans-serif; 
+            letter-spacing: 1px; 
+            text-transform: uppercase;
+            text-align: left;
+        }
+        
+        .sg-intro-text p { 
+            color: var(--white); 
+            font-size: 1.1rem; 
+            line-height: 1.8; 
+            opacity: 0.9; 
+            margin-bottom: 1.5rem; 
+            text-align: justify; 
+        }
+        
+        .sg-intro-photo { 
+            width: 100%; 
+            height: 420px; 
+            border-radius: 15px; 
+            border: 3px solid var(--gold); 
+            overflow: hidden; 
+            box-shadow: 0 0 25px rgba(212, 192, 139, 0.3); 
+            background-color: var(--navy-blue); 
+            margin-bottom: 1.5rem; 
+        }
+        .sg-intro-photo img { width: 100%; height: 100%; object-fit: cover; }
+        
+        /* Signature/Title under photo */
+        .sg-signature { text-align: center; }
+        .sg-signature h4 { 
+            font-size: 1.25rem; 
+            color: var(--white); 
+            letter-spacing: 2px; 
+            margin-bottom: 0.2rem; 
+            text-transform: uppercase; 
+            font-family: 'XBNiloofarRegular', sans-serif;
+        }
+        .sg-signature h5 { 
+            font-size: 1rem; 
+            color: var(--gold); 
+            letter-spacing: 1.5px; 
+            font-weight: 600; 
+            text-transform: uppercase; 
+        }
+
+        /* Meet The Team Section */
+        .division-title { font-size: 2rem; margin-top: 4rem; margin-bottom: 1.5rem; color: var(--white); letter-spacing: 1px; display: flex; justify-content: center; align-items: center; text-align: center; width: 100%; }
+        .division-title::before, .division-title::after { content: "—"; color: var(--gold); margin: 0 15px; opacity: 0.6; }
+
+        .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2.5rem; justify-content: center; max-width: 1000px; margin: 0 auto; }
+        .team-grid.secretariat-row { max-width: 750px; margin: 0 auto 2.5rem auto; }
+        .card-wrapper { display: flex; justify-content: center; width: 100%; }
+
+        /* Team Cards - Added GPU acceleration */
+        .team-card {
+            background-color: var(--light-navy);
+            border: 1px solid rgba(212, 192, 139, 0.15);
+            border-top: 4px solid var(--gold);
+            border-radius: 12px;
+            padding: 3rem 1.5rem;
+            text-align: center;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            outline: none;
+            max-width: 380px;
+            width: 100%;
+            will-change: transform, box-shadow; 
+        }
+        .team-card:hover, .team-card:focus { transform: translateY(-8px); border-color: var(--gold); box-shadow: 0 10px 30px rgba(212, 192, 139, 0.15); }
+
+        .team-photo-frame {
+            width: 180px;
+            height: 180px; 
+            margin: 0 auto 1.5rem auto;
+            border-radius: 25px; 
+            border: 3px solid var(--gold);
+            background-color: var(--navy-blue);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 0 15px rgba(212, 192, 139, 0.25);
+            will-change: transform, box-shadow; 
+        }
+        .team-card:hover .team-photo-frame { transform: scale(1.03); box-shadow: 0 0 25px rgba(212, 192, 139, 0.4); }
+        .team-photo-frame img { width: 100%; height: 100%; object-fit: cover; }
+        .fallback-icon { font-size: 4.5rem; color: rgba(212, 192, 139, 0.5); }
+
+        .team-card h3 { font-size: 1.5rem; margin-bottom: 0.8rem; color: var(--white); text-align: center; }
+        .team-role { font-size: 0.85rem; font-weight: 700; color: var(--gold); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 0; text-align: center; background: rgba(212, 192, 139, 0.1); display: inline-block; padding: 6px 16px; border-radius: 20px; border: 1px solid rgba(212, 192, 139, 0.3); }
+
+        /* Contact Section */
+        .contact-content { text-align: center; max-width: 800px; margin: 0 auto; }
+        .contact-links { display: flex; justify-content: center; gap: 1.5rem; margin-top: 3rem; flex-wrap: wrap; }
+        .contact-btn { display: flex; align-items: center; gap: 12px; font-size: 1.1rem; font-weight: 600; color: var(--gold); text-decoration: none; padding: 1rem 2rem; border: 2px solid var(--gold); border-radius: 8px; background: var(--navy-blue); box-shadow: 0 4px 15px rgba(0,0,0,0.4); transition: all 0.3s ease; }
+        .contact-btn svg { width: 24px; height: 24px; fill: currentColor; transition: fill 0.3s ease; }
+        .contact-btn:hover { background-color: var(--gold); color: var(--navy-blue); box-shadow: 0 8px 25px var(--gold-shadow); transform: translateY(-3px); }
+
+        footer { text-align: center; padding: 3rem 2rem; background-color: var(--navy-blue); border-top: 2px solid var(--gold); font-size: 0.9rem; color: rgba(255,255,255,0.7); }
+
+        @keyframes heroFadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes heroFadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        /* --- MOBILE RESPONSIVENESS (IMPROVED ACCESSIBILITY) --- */
+        @media (max-width: 900px) {
+            /* Kept for structural continuity if needed */
+        }
+
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2.2rem; }
+            .hero-subtitle { font-size: 1.1rem; }
+            .section-title { font-size: 2rem; }
+            
+            .hamburger { display: block; }
+            .nav-links { display: none; flex-direction: column; position: absolute; top: 72px; left: 0; width: 100%; background-color: var(--light-navy); padding: 1rem 0; box-shadow: 0 10px 25px rgba(0,0,0,0.5); border-bottom: 2px solid var(--gold); }
+            .nav-links.active { display: flex; }
+            .nav-links li { margin: 1rem 0; text-align: center; width: 100%; }
+            .dropdown { flex-direction: column; }
+            .dropdown-content { visibility: visible; opacity: 1; position: relative; top: 0; left: 0; transform: none; box-shadow: none; border: none; background-color: transparent; width: 100%; box-sizing: border-box; margin-top: 0.5rem; display: none; }
+            .dropdown-content.show { display: block; animation: heroFadeIn 0.3s ease; }
+            .dropdown-content a { padding: 12px 20px; font-size: 1rem; text-align: center; } 
+            
+            .countdown-container { gap: 0.8rem; }
+            .time-box { min-width: 75px; padding: 1rem 0.5rem; }
+            .time-box span { font-size: 1.5rem; }
+            .time-box p { font-size: 0.75rem; }
+            
+            .section-container { padding: 4rem 5%; }
+            .team-card { padding: 2.5rem 1.5rem; }
+            .hero-logo { max-width: 180px; }
+
+            .sg-intro-container { flex-direction: column-reverse; width: 95vw; min-height: auto; text-align: center; padding: 2.5rem 1.5rem; gap: 2rem; align-items: center; }
+            .sg-intro-text p { text-align: left; }
+            .sg-intro-text h3 { font-size: 1.8rem; text-align: center; }
+            .sg-profile { width: 100%; max-width: 300px; }
+            .sg-intro-photo { width: 100%; height: 350px; }
+            
+            /* Modal / About Us optimizations */
+            .modal-content { 
+                width: 95%; 
+                padding: 1.5rem; 
+                margin: 5% auto; 
+            }
+            .close-modal { top: 5px; right: 10px; font-size: 35px; }
+            .scrollable-content { padding-right: 0.5rem; max-height: 75vh; }
+            .scrollable-content h3 { font-size: 1.5rem; }
+            .scrollable-content p { font-size: 1rem; }
+            
+            /* Founder Section stacked on mobile */
+            .founder-section { 
+                flex-direction: column-reverse; 
+                align-items: center; 
+                text-align: center; 
+                gap: 1.5rem;
+            }
+            .founder-photo { width: 150px; height: 150px; } 
+            
+            .contact-btn { font-size: 1rem; padding: 1rem 1.5rem; width: 100%; justify-content: center; }
+            .team-grid.secretariat-row { max-width: 100%; }
+        }
+        /* 2026 visual refinement — preserves the original navy and gold palette */
+        :root {
+            --navy-blue: #161a29;
+            --light-navy: #1f253a;
+            --gold: #d4c08b;
+            --white: #ffffff;
+            --gold-shadow: rgba(212, 192, 139, 0.22);
+            --surface: rgba(31, 37, 58, 0.78);
+            --muted: rgba(255, 255, 255, 0.72);
+            --line: rgba(212, 192, 139, 0.18);
+            --radius-sm: 10px;
+            --radius-md: 18px;
+            --radius-lg: 28px;
+            --shadow-sm: 0 10px 30px rgba(5, 8, 18, 0.18);
+            --shadow-lg: 0 24px 70px rgba(5, 8, 18, 0.42);
+        }
+
+        body {
+            background:
+                radial-gradient(circle at 15% 12%, rgba(212, 192, 139, 0.055), transparent 28rem),
+                var(--navy-blue);
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body::selection { background: var(--gold); color: var(--navy-blue); }
+        a, button, .team-card { -webkit-tap-highlight-color: transparent; }
+        img { max-width: 100%; }
+
+        nav {
+            min-height: 76px;
+            padding: 0.9rem clamp(1.25rem, 5vw, 5rem);
+            background: rgba(22, 26, 41, 0.9);
+            border-bottom: 1px solid var(--line);
+            box-shadow: 0 12px 35px rgba(5, 8, 18, 0.22);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+        }
+
+        .nav-logo { gap: 0.75rem; font-size: 1.35rem; font-weight: 600; }
+        .nav-logo img { height: 44px; }
+        .nav-links { gap: clamp(1.1rem, 2.4vw, 2.25rem); }
+        .nav-links a { position: relative; font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase; }
+        .nav-links > li > a::after {
+            content: ''; position: absolute; right: 0; bottom: -0.55rem; left: 0;
+            height: 1px; background: var(--gold); transform: scaleX(0); transform-origin: right;
+            transition: transform 0.25s ease;
+        }
+        .nav-links > li > a:hover::after, .nav-links > li > a:focus-visible::after { transform: scaleX(1); transform-origin: left; }
+        .dropdown-content { padding: 0.45rem; border: 1px solid var(--line); border-radius: 14px; background: rgba(31, 37, 58, 0.98); box-shadow: var(--shadow-lg); }
+        .dropdown-content a { border-radius: 9px; border-bottom: 0; padding: 0.85rem 1rem; font-size: 0.78rem; }
+        .dropdown-content a:hover { padding-left: 1.25rem; }
+
+        header {
+            position: relative; isolation: isolate; min-height: calc(100svh - 76px);
+            padding: clamp(5rem, 9vw, 8rem) 1.5rem;
+            background-position: center 35%; border-bottom: 1px solid var(--line);
+        }
+        header::before {
+            content: ''; position: absolute; inset: 0; z-index: -1;
+            background: radial-gradient(circle at center, transparent 0%, rgba(10, 13, 24, 0.22) 55%, rgba(10, 13, 24, 0.72) 100%);
+            pointer-events: none;
+        }
+        .hero-logo { width: clamp(150px, 17vw, 225px); margin-bottom: 1.6rem; filter: drop-shadow(0 16px 30px rgba(0,0,0,.48)); }
+        .hero-title { max-width: 1000px; font-size: clamp(2.75rem, 7vw, 5.75rem); line-height: 0.98; letter-spacing: 0.035em; }
+        .hero-subtitle { max-width: 720px; margin-top: 1rem; margin-bottom: 2.5rem; color: var(--muted); font-size: clamp(1rem, 2vw, 1.25rem); letter-spacing: 0.05em; }
+        .countdown-container { gap: 0.75rem; margin-bottom: 2.5rem; }
+        .time-box { min-width: 112px; padding: 1.15rem 1rem; background: rgba(22, 26, 41, 0.58); border: 1px solid var(--line); border-radius: 14px; box-shadow: var(--shadow-sm); backdrop-filter: blur(10px); }
+        .time-box span { font-family: 'Montserrat', sans-serif; font-size: clamp(1.8rem, 4vw, 2.45rem); line-height: 1; }
+        .time-box p { color: var(--muted); font-size: 0.68rem; letter-spacing: 0.16em; }
+
+        .btn { padding: 0.95rem 1.8rem; border: 1px solid rgba(255,255,255,.18); border-radius: 999px; font-size: 0.84rem; letter-spacing: 0.08em; text-transform: uppercase; box-shadow: 0 10px 30px var(--gold-shadow); }
+        .btn:focus-visible, .contact-btn:focus-visible, .team-card:focus-visible, .hamburger:focus-visible, .close-modal:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
+
+        .section-container { padding: clamp(5rem, 9vw, 8rem) clamp(1.25rem, 8vw, 8rem); }
+        .section-title { margin-bottom: clamp(2.5rem, 5vw, 4rem); font-size: clamp(2.25rem, 5vw, 3.6rem); line-height: 1.1; letter-spacing: 0.02em; }
+        .section-title::after { width: 54px; height: 2px; margin-top: 1.2rem; }
+        .bg-light { background: linear-gradient(135deg, rgba(255,255,255,.018), transparent 45%), var(--light-navy); }
+        .about-content { max-width: 780px; color: var(--muted); font-size: clamp(1rem, 1.5vw, 1.12rem); line-height: 1.95; }
+
+        .sg-intro-container { width: min(1180px, calc(100% - 2.5rem)); min-height: 0; gap: clamp(2.5rem, 6vw, 5.5rem); padding: clamp(2rem, 5vw, 4.5rem); border: 1px solid var(--line); border-top: 1px solid var(--line); border-radius: var(--radius-lg); background: linear-gradient(145deg, rgba(255,255,255,.035), transparent 55%), var(--light-navy); box-shadow: var(--shadow-lg); }
+        .sg-profile { width: min(320px, 100%); }
+        .sg-intro-photo { height: 410px; border: 1px solid var(--line); border-radius: 22px; box-shadow: 0 18px 45px rgba(5,8,18,.36); }
+        .sg-intro-text h3 { margin-bottom: 1.4rem; font-size: clamp(1.8rem, 3vw, 2.6rem); line-height: 1.15; text-transform: none; }
+        .sg-intro-text p { color: var(--muted); font-size: 1rem; line-height: 1.9; text-align: left; }
+        .sg-signature h4 { font-family: 'Montserrat', sans-serif; font-size: 1rem; font-weight: 600; }
+        .sg-signature h5 { font-size: 0.72rem; }
+
+        .division-title { margin-top: clamp(4rem, 8vw, 7rem); margin-bottom: 2rem; font-size: clamp(1.55rem, 3vw, 2.15rem); }
+        .division-title::before, .division-title::after { content: ''; width: 34px; height: 1px; background: var(--gold); }
+        .team-grid { max-width: 1040px; gap: 1.5rem; }
+        .team-card { max-width: 360px; padding: 2rem 1.5rem 1.7rem; border: 1px solid var(--line); border-top: 1px solid var(--line); border-radius: var(--radius-md); background: linear-gradient(145deg, rgba(255,255,255,.035), transparent 55%), var(--light-navy); box-shadow: var(--shadow-sm); }
+        .team-card:hover, .team-card:focus { transform: translateY(-6px); box-shadow: 0 20px 48px rgba(5,8,18,.42); }
+        .team-photo-frame { width: 160px; height: 180px; border: 1px solid var(--line); border-radius: 18px; box-shadow: none; }
+        .team-card h3 { margin-bottom: 0.65rem; font-size: 1.45rem; line-height: 1.2; }
+        .team-role { padding: 0.45rem 0.85rem; border-color: var(--line); background: rgba(212,192,139,.07); font-size: 0.68rem; letter-spacing: 0.12em; }
+
+        .contact-content { max-width: 900px; }
+        .contact-content > p { color: var(--muted); line-height: 1.85; }
+        .contact-links { gap: 0.8rem; margin-top: 2rem; }
+        .contact-btn { min-height: 54px; padding: 0.8rem 1.25rem; border: 1px solid var(--line); border-radius: 999px; background: rgba(22,26,41,.52); box-shadow: none; font-size: 0.86rem; }
+        .contact-btn svg { width: 20px; height: 20px; }
+        footer { padding: 2rem 1.25rem; border-top: 1px solid var(--line); background: #111522; font-size: 0.78rem; letter-spacing: 0.03em; }
+
+        .modal { padding: 1.5rem; background: rgba(8, 11, 20, 0.82); backdrop-filter: blur(12px); }
+        .modal-content { width: min(1040px, 100%); margin: min(5vh, 3rem) auto; padding: clamp(1.5rem, 4vw, 3.5rem); border: 1px solid var(--line); border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); }
+        .close-modal { top: 0.8rem; right: 1rem; font-size: 2rem; line-height: 1; }
+        .scrollable-content { scrollbar-color: var(--gold) transparent; }
+
+        @media (max-width: 768px) {
+            nav { min-height: 68px; }
+            .nav-logo { font-size: 1.08rem; }
+            .nav-logo img { height: 38px; }
+            .hamburger { padding: 0.2rem; font-size: 1.65rem; }
+            .nav-links { top: 68px; max-height: calc(100vh - 68px); overflow-y: auto; padding: 1.2rem; gap: 0; background: rgba(22,26,41,.98); }
+            .nav-links li { margin: 0.35rem 0; }
+            .nav-links > li > a { display: block; padding: 0.75rem; }
+            header { padding-inline: 1rem; }
+            .hero-title { font-size: clamp(2.5rem, 13vw, 4rem); }
+            .countdown-container { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); width: min(100%, 430px); }
+            .time-box { min-width: 0; padding: 0.9rem 0.25rem; }
+            .time-box p { font-size: 0.58rem; letter-spacing: 0.09em; }
+            .section-container { padding-inline: 1.25rem; }
+            .sg-intro-container { width: calc(100% - 1rem); padding: 2rem 1.25rem; border-radius: 22px; }
+            .sg-intro-photo { height: 360px; }
+            .team-grid { grid-template-columns: 1fr; }
+            .team-card { max-width: 390px; }
+            .contact-btn { width: 100%; justify-content: center; }
+            .modal { padding: 0.65rem; }
+            .modal-content { margin: 1.5vh auto; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+            .scroll-reveal { opacity: 1; transform: none; }
+        }
+    </style>
+    <link rel="stylesheet" href="site-polish.css">
+</head>
+<body>
+
+    <nav>
+        <a href="#home" class="nav-logo">
+            <img src="1_1770817820402_2cg59.png" alt="PBSMUN Logo" loading="lazy" decoding="async"> PBSMUN
+        </a>
+        <div class="hamburger" onclick="toggleMenu()">☰</div>
+        <ul class="nav-links" id="nav-menu">
+            <li><a href="#home" onclick="toggleMenu()">Home</a></li>
+            <li><a href="guides.html" onclick="toggleMenu()">The Conference</a></li>
+            <li><a href="schedule.html" onclick="toggleMenu()">Schedule</a></li>
+            <li><a href="#about" onclick="toggleMenu()">About</a></li>
+            <li><a href="#team" onclick="toggleMenu()">Team</a></li>
+            <li><a href="#contact" onclick="toggleMenu()">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <header id="home">
+        <img src="1_1770817820402_2cg59.png" alt="PBSMUN Logo" class="hero-logo" loading="lazy" decoding="async">
+        
+        <h1 class="hero-title">PBSMUN '26</h1>
+        <p class="hero-subtitle">Pace British School Model United Nations</p>
+
+        <div class="countdown-container" id="timer-container">
+            <div class="time-box">
+                <span id="days">00</span>
+                <p>Days</p>
+            </div>
+            <div class="time-box">
+                <span id="hours">00</span>
+                <p>Hours</p>
+            </div>
+            <div class="time-box">
+                <span id="minutes">00</span>
+                <p>Minutes</p>
+            </div>
+            <div class="time-box">
+                <span id="seconds">00</span>
+                <p>Seconds</p>
+            </div>
+        </div>
+
+        <a href="#team" class="btn">Meet The Team</a>
+    </header>
+
+    <section id="about" class="section-container bg-light">
+        <h2 class="section-title scroll-reveal">ABOUT US</h2>
+        <div class="about-content scroll-reveal">
+            <p> Pace British School aims to offer an inclusive opportunity for growth alongside a respectful display of skill, creativity and ambition with the aid of our dedicated staff and brilliant students. </p>
+            <br>
+            <p>We at PBS MUN believe in the power of the youth to drive positive change in the world. As such, PBSMUN made to be a place where students can display and develop their skills, while simultaneously working towards developing solutions to change this world for the better. Debates, POIs, speeches, challenges, resolution papers- all aspects of an MUN—are integrated to create an engaging, educational, and impactful experience for every delegate.  </p>
+            
+            <button id="more-about-btn" class="btn scroll-reveal">Learn More</button>
+        </div>
+    </section>
+
+    <section id="team" class="section-container">
+        <h2 class="section-title scroll-reveal">MEET OUR SECRETARIAT</h2>
+
+        <div class="sg-intro-container scroll-reveal">
+            <div class="sg-intro-text">
+                <h3>Welcome from the Secretary-General</h3>
+                <p>I am delighted to welcome you all to our first ever PACE British School Model United Nations Conference (PBSMUN). Being your Secretary-General for this conference is more than just a title to me, it is a responsibility and a chance I truly appreciate.</p>
+                
+                <p>I used to sit nervously in committee sessions as a delegate, and now I am leading this conference. I’ve seen firsthand just how powerful MUN's can be. It is about more than just speeches and resolutions. It is a place where people start to build confidence, question their views, make friends, and leaders begin to find their voice. MUN has changed how I see things, how I talk, and how I understand what is going on around me, and I hope this conference has the same impact on you.</p>
+                
+                <p>We live in a time where people are more connected than ever, but somehow, that connection does not always bring us together like it should. Problems around the world do not stop at borders, and finding answers means working together. Each of you stands for a country, a perspective, and a duty. During this conference, you will spend time debating, negotiating, making compromises, and working together. Along the way, you will see that diplomacy isn’t just about winning debates but about creating an understanding environment.</p>
+                
+                <p>This conference is a place not only to talk but to listen, not just to compete but to learn and grow. If this is your first time as a delegate or you have done it before, I invite you to push yourself a little, speak up with confidence, and really get involved. The difference you make here might be bigger than you think.</p>
+                
+                <p>Our MUN trusts that young leaders can make a difference. We believe that change does not start in big rooms filled with power, it starts with people talking, sharing ideas, and those who have the courage to think in new ways. Over the next few sessions, I hope you push yourself a bit, encourage each other, and above all, have a great time along the way.</p>
+                
+                <p>On behalf of the whole Secretariat, I am contented to welcome you to PBSMUN 2026, where ideas come to life and future leaders start their journey.</p>
+                
+                <p>I am eager to see the diplomacy, passion, and brilliance you all will bring to each committee.</p>
+                <br>
+                <p>Warm regards,</p>
+                <p>Huzaifa Anwar<br>Secretary General, PBSMUN 2026</p>
+            </div>
+
+            <div class="sg-profile">
+                <div class="sg-intro-photo">
+                    <img src="Huzaifa Main.jpeg" alt="Secretary General" loading="lazy" decoding="async">
+                </div>
+                <div class="sg-signature">
+                    <h4>Huzaifa Anwar</h4>
+                    <h5>Secretary General</h5>
+                </div>
+            </div>
+        </div>
+        
+        <h3 class="division-title scroll-reveal">SECRETARIAT BOARD</h3>
+        
+        <div class="team-grid secretariat-row">
+            <div class="card-wrapper scroll-reveal">
+                <div class="team-card">
+                    <div class="team-photo-frame">
+                        <img src="Huzaifa.jpeg" alt="Huzaifa Anwar" loading="lazy" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <span class="fallback-icon" style="display:none;"></span>
+                    </div>
+                    <h3>Huzaifa Anwar</h3>
+                    <p class="team-role">Secretary General</p>
+                </div>
+            </div>
+
+            <div class="card-wrapper scroll-reveal">
+                <div class="team-card">
+                    <div class="team-photo-frame">
+                        <img src="Taha.png" alt="Taha Yaseen Khan" loading="lazy" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <span class="fallback-icon" style="display:none;"></span>
+                    </div>
+                    <h3>Taha Yaseen Khan</h3>
+                    <p class="team-role">Deputy Secretary General</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="team-grid secretariat-row" style="margin-bottom: 0;">
+            <div class="card-wrapper scroll-reveal">
+                <div class="team-card">
+                    <div class="team-photo-frame">
+                        <img src="Khadeeja.png" alt="Khadeeja Dua" loading="lazy" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <span class="fallback-icon" style="display:none;"></span>
+                    </div>
+                    <h3>Khadeeja Dua</h3>
+                    <p class="team-role">Deputy Secretary General</p>
+                </div>
+            </div>
+
+            <div class="card-wrapper scroll-reveal">
+                <div class="team-card">
+                    <div class="team-photo-frame">
+                        <img src="Rameen.jpeg" alt="Rameen Adnan" loading="lazy" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <span class="fallback-icon" style="display:none;"></span>
+                    </div>
+                    <h3>Rameen Adnan</h3>
+                    <p class="team-role">Chief of Staff</p>
+                </div>
+            </div>
+        </div>
+        
+        <h3 class="division-title scroll-reveal">Director General</h3>
+        <div class="team-grid">
+            <div class="card-wrapper scroll-reveal">
+                <div class="team-card">
+                    <div class="team-photo-frame">
+                        <img src="Rayan.jpeg" alt="Rayan Hassan" loading="lazy" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <span class="fallback-icon" style="display:none;"></span>
+                    </div>
+                    <h3>Rayan Hassan</h3>
+                    <p class="team-role">Director General</p>
+                </div>
+            </div>
+        </div>
+
+        <h3 class="division-title scroll-reveal">Finance Team</h3>
+        <div class="team-grid">
+            <div class="card-wrapper scroll-reveal">
+                <div class="team-card">
+                    <div class="team-photo-frame">
+                        <img src="Rayyan.png" alt="Rayyan Ali" loading="lazy" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <span class="fallback-icon" style="display:none;"></span>
+                    </div>
+                    <h3>Rayyan Ali</h3>
+                    <p class="team-role">Head of Finance</p>
+                </div>
+            </div>
+        </div>
+    
+        <h3 class="division-title scroll-reveal">Media Team</h3>
+        <div class="team-grid">
+            <div class="card-wrapper scroll-reveal">
+                <div class="team-card">
+                    <div class="team-photo-frame">
+                        <img src="Dhruv.jpeg" alt="Dhruv Kanchan" loading="lazy" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <span class="fallback-icon" style="display:none;"></span>
+                    </div>
+                    <h3>Dhruv Kanchan</h3>
+                    <p class="team-role">Head of Media</p>
+                </div>
+            </div>
+
+            <div class="card-wrapper scroll-reveal">
+                <div class="team-card">
+                    <div class="team-photo-frame">
+                        <img src="Masah.jpeg" alt="Masah Mohamed" loading="lazy" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <span class="fallback-icon" style="display:none;"></span>
+                    </div>
+                    <h3>Masah Mohamed</h3>
+                    <p class="team-role">Head of Media</p>
+                </div>
+            </div>
+        </div>
+        
+        <h3 class="division-title scroll-reveal">Research Team</h3>
+        <div class="team-grid">
+            <div class="card-wrapper scroll-reveal">
+                <div class="team-card">
+                    <div class="team-photo-frame">
+                         <img src="Advit.jpeg" alt="Advit Kumar" loading="lazy" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <span class="fallback-icon" style="display:none;"></span>
+                    </div>
+                    <h3>Advit Kumar</h3>
+                    <p class="team-role">Head of Research</p>
+                </div>
+            </div>
+
+            <div class="card-wrapper scroll-reveal">
+                <div class="team-card">
+                    <div class="team-photo-frame">
+                        <img src="placeholder.jpg" alt="Nahrin Newaj" loading="lazy" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <span class="fallback-icon" style="display:none;"></span>
+                    </div>
+                    <h3>Nahrin Newaj</h3>
+                    <p class="team-role">Head of Research</p>
+                </div>
+            </div>
+        </div>
+
+        <h3 class="division-title scroll-reveal">Crisis Team</h3>
+        <div class="team-grid">
+            <div class="card-wrapper scroll-reveal">
+                <div class="team-card">
+                    <div class="team-photo-frame">
+                        <img src="Izzah.jpeg" alt="Izzah Tayyab" loading="lazy" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <span class="fallback-icon" style="display:none;"></span>
+                    </div>
+                    <h3>Izzah Tayyab</h3>
+                    <p class="team-role">Head of Crisis</p>
+                </div>
+            </div>
+
+            <div class="card-wrapper scroll-reveal">
+                <div class="team-card">
+                    <div class="team-photo-frame">
+                        <img src="Zainab M.jpeg" alt="Zainab Fatima" loading="lazy" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <span class="fallback-icon" style="display:none;"></span>
+                    </div>
+                    <h3>Zainab Fatima</h3>
+                    <p class="team-role">Head of Crisis</p>
+                </div>
+            </div>
+        </div>
+
+        <h3 class="division-title scroll-reveal">Logistics Team</h3>
+        <div class="team-grid">
+            <div class="card-wrapper scroll-reveal">
+                <div class="team-card">
+                    <div class="team-photo-frame">
+                        <img src="Mateen.png" alt="Muhammad Mateen" loading="lazy" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <span class="fallback-icon" style="display:none;"></span>
+                    </div>
+                    <h3>Muhammad Mateen</h3>
+                    <p class="team-role">Head of Logistics</p>
+                </div>
+            </div>
+
+            <div class="card-wrapper scroll-reveal">
+                <div class="team-card">
+                    <div class="team-photo-frame">
+                        <img src="Ifrah.jpeg" alt="Ifrah Inam" loading="lazy" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <span class="fallback-icon" style="display:none;"></span>
+                    </div>
+                    <h3>Ifrah Inam</h3>
+                    <p class="team-role">Head of Logistics</p>
+                </div>
+            </div>
+        </div>
+
+        <h3 class="division-title scroll-reveal">Delegate Affairs Team</h3>
+        <div class="team-grid">
+            <div class="card-wrapper scroll-reveal">
+                <div class="team-card">
+                    <div class="team-photo-frame">
+                         <img src="Shahbaz.jpeg" alt="Mohammed Shahbaz" loading="lazy" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <span class="fallback-icon" style="display:none;"></span>
+                    </div>
+                    <h3>Mohammed Shahbaz</h3>
+                    <p class="team-role">Head of Delegate Affairs</p>
+                </div>
+            </div>
+
+            <div class="card-wrapper scroll-reveal">
+                <div class="team-card">
+                    <div class="team-photo-frame">
+                        <img src="Anisa.jpeg" alt="Anisa Qurbonalizoda" loading="lazy" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <span class="fallback-icon" style="display:none;"></span>
+                    </div>
+                    <h3>Anisa Qurbonalizoda</h3>
+                    <p class="team-role">Head of Delegate Affairs</p>
+                </div>
+            </div>
+        </div>
+
+        <h3 class="division-title scroll-reveal">Operations Team</h3>
+        <div class="team-grid">
+            <div class="card-wrapper scroll-reveal">
+                <div class="team-card">
+                    <div class="team-photo-frame">
+                         <img src="Ayaan.jpeg" alt="Ayaan Danish" loading="lazy" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <span class="fallback-icon" style="display:none;"></span>
+                    </div>
+                    <h3>Ayaan Danish</h3>
+                    <p class="team-role">Head of Operations</p>
+                </div>
+            </div>
+
+            <div class="card-wrapper scroll-reveal">
+                <div class="team-card">
+                    <div class="team-photo-frame">
+                        <img src="Versha.jpeg" alt="Versha Kumari" loading="lazy" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <span class="fallback-icon" style="display:none;"></span>
+                    </div>
+                    <h3>Versha Kumari</h3>
+                    <p class="team-role">Head of Operations</p>
+                </div>
+            </div>
+        </div>
+
+        <h3 class="division-title scroll-reveal">Design Team</h3>
+        <div class="team-grid">
+            <div class="card-wrapper scroll-reveal">
+                <div class="team-card">
+                    <div class="team-photo-frame">
+                         <img src="Manuel.jpeg" alt="Manuel Dieudon" loading="lazy" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <span class="fallback-icon" style="display:none;"></span>
+                    </div>
+                    <h3>Manuel Dieudon</h3>
+                    <p class="team-role">Head of Designs</p>
+                </div>
+            </div>
+
+            <div class="card-wrapper scroll-reveal">
+                <div class="team-card">
+                    <div class="team-photo-frame">
+                        <img src="Zainab.jpeg" alt="Zainab Ali" loading="lazy" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <span class="fallback-icon" style="display:none;"></span>
+                    </div>
+                    <h3>Zainab Ali</h3>
+                    <p class="team-role">Head of Designs</p>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section id="contact" class="section-container bg-light">
+        <h2 class="section-title scroll-reveal">Contact Us</h2>
+        <div class="contact-content scroll-reveal">
+            <p>Have questions about registration, committee allocations, or sponsorship opportunities? Our Secretariat is here to help. Reach out to us via email or send us a DM on Instagram or TikTok.</p>
+            
+            <div class="contact-links">
+                <a href="mailto:pbsmun26@gmail.com" class="contact-btn">
+                    <svg viewBox="0 0 24 24"><path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z"/></svg>
+                    pbsmun26@gmail.com
+                </a>
+                
+                <a href="https://www.instagram.com/pbsmun_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="contact-btn">
+                    <svg viewBox="0 0 24 24"><path d="M7.8 2H16.2C19.4 2 22 4.6 22 7.8V16.2C22 19.4 19.4 22 16.2 22H7.8C4.6 22 2 19.4 2 16.2V7.8C2 4.6 4.6 2 7.8 2ZM7.6 4C5.6 4 4 5.6 4 7.6V16.4C4 18.4 5.6 20 7.6 20H16.4C18.4 20 20 18.4 20 16.4V7.6C20 5.6 18.4 4 16.4 4H7.6ZM12 9.25C13.52 9.25 14.75 10.48 14.75 12C14.75 13.52 13.52 14.75 12 14.75C10.48 14.75 9.25 13.52 9.25 12C9.25 10.48 10.48 9.25 12 9.25ZM12 7.25C9.38 7.25 7.25 9.38 7.25 12C7.25 14.62 9.38 16.75 12 16.75C14.62 16.75 16.75 14.62 16.75 12C16.75 9.38 14.62 7.25 12 7.25ZM17 6C17.55 6 18 6.45 18 7C18 7.55 17.55 8 17 8C16.45 8 16 7.55 16 7C16 6.45 16.45 6 17 6Z"/></svg>
+                    @pbsmun_
+                </a>
+
+                <a href="https://www.tiktok.com/@pbsmun_?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener noreferrer" class="contact-btn">
+                    <svg viewBox="0 0 448 512"><path d="M448,209.91a210.06,210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.31V278.2a74.62,74.62,0,1,0,52.23,71.18V0l88,0a121.18,121.18,0,0,0,1.86,22.17h0A122.18,122.18,0,0,0,381,102.39a121.43,121.43,0,0,0,67,20.14Z"/></svg>
+                    @pbsmun_
+                </a>
+            </div>
+
+            <p style="margin-top: 3rem;">You can also reach out directly to our Faculty Advisors:</p>
+            <div class="contact-links" style="margin-top: 1.5rem;">
+                <a href="mailto:nadiya.saleem@pacebritish.com" class="contact-btn">
+                    <svg viewBox="0 0 24 24"><path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z"/></svg>
+                    Nadiya Mohammed
+                </a>
+                <a href="mailto:thandeka.amanda@pacebritish.com" class="contact-btn">
+                    <svg viewBox="0 0 24 24"><path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z"/></svg>
+                    Thandeeka Amanda
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Pace British School Model United Nations. All rights reserved. Website Made by Manuel Dieudon , Mohammed Shabaz and Advit Pankaj. </p>
+    </footer>
+
+    <div id="about-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" id="close-modal-btn">×</span>
+            <h2 class="section-title" style="margin-bottom: 1.5rem;">More About Us</h2>
+            
+            <div class="scrollable-content">
+                <h3>About Pace British School </h3>
+                <p>Opened in 2019, Pace British School is a Cambridge International Curriculum School, alongside offering Edexcel IGCSE’s in Years 10 and 11. The school focuses on academic excellence while encouraging growth and development within a robust and inclusive system made to foster learners for a bright future. </p>
+                
+                <h3>Our History</h3>
+                <div class="founder-section">
+                    <div class="founder-text">
+                        <p>The first iteration of PBSMUN hopes to support the founder of the PACE Group, Dr. PA Ibrahim Haji's belief that education should not merely impart knowledge but translate it into actions that benefit humanity. Three years ago, the Pace British Lunchtime Club was founded by the Head-boy and the Head-girl at that time, the MUN lunchtime club was comprised of many beginners and the lunchtime club served to help students prepair for their first MUN elsewhere. </p>
+                    </div>
+                    <div class="founder-photo">
+                        <img src="/Ibrahimhaji.jpg.jpg" alt="Dr. PA Ibrahim Haji" loading="lazy" decoding="async">
+                    </div>
+                </div>
+                
+                <h3>Our Experience</h3>
+                <p>Our student-led staff has experience many aspects of MUNs, ranging from delegates with many Best Delegate, Best Research, Best Orator and Honourable Mention Awards, staff with experience as chairs and experience in organizing other events within and outside Pace British School, such as our Bake Sale and Sports day, alongside student leadership roles such as headboy and headgirl, prefect and student council.</p>
+                
+                <h3>Our Mission</h3>
+                <p> The first iteration of PBSMUN aims to grant students a chance to develop their organization skills as they overcome many adversities to bring everyone a welcoming space for growth whilst being a space to appreciate, encourage and develop our core values, which entail being ambitious, internationally minded, inclusive and kind, environmentally responsible alongside the Islamic Values. </p>
+                
+                <div style="text-align: center; margin-top: 3rem; margin-bottom: 1.5rem;">
+                    <a href="https://pacebritish.com/" target="_blank" rel="noopener noreferrer" class="btn" style="opacity: 1; animation: none;">Learn More at Pace British</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- Mobile Menu Toggle ---
+        function toggleMenu() {
+            const menu = document.getElementById('nav-menu');
+            if (window.innerWidth <= 768) {
+                menu.classList.toggle('active');
+            }
+        }
+
+        // --- Team Card Accessibility & Click Logic ---
+        document.querySelectorAll('.team-card').forEach(card => {
+            card.setAttribute('tabindex', '0'); 
+            card.setAttribute('role', 'button'); 
+            card.setAttribute('aria-expanded', 'false');
+
+            const toggleQuote = () => {
+                const isExpanded = card.classList.toggle('show-quote');
+                card.setAttribute('aria-expanded', isExpanded);
+                const hint = card.querySelector('.click-hint');
+                if (hint) hint.textContent = isExpanded ? "" : "Tap to reveal quote";
+            };
+
+            card.addEventListener('click', toggleQuote);
+ 
+            card.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault(); 
+                    toggleQuote();
+                }
+            });
+        });
+
+        // --- Countdown Timer Logic ---
+        const countDownDate = new Date("Nov 13, 2026 08:00:00 GMT+0400").getTime();
+        const timerInterval = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = countDownDate - now;
+
+            if (distance < 0) {
+                clearInterval(timerInterval);
+                document.getElementById("timer-container").innerHTML = "<h2 style='margin-bottom: 2rem; color: var(--gold);'>The Conference Has Begun!</h2>";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = days.toString().padStart(2, '0');
+            document.getElementById("hours").innerText = hours.toString().padStart(2, '0');
+            document.getElementById("minutes").innerText = minutes.toString().padStart(2, '0');
+            document.getElementById("seconds").innerText = seconds.toString().padStart(2, '0');
+        }, 1000);
+
+        // --- Performance Fix: Modified Scroll Animation Logic ---
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px 0px -20px 0px', 
+            threshold: 0.1 
+        };
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                    observer.unobserve(entry.target); 
+                }
+            });
+        }, observerOptions);
+        document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
+
+        // --- More About Us Modal Logic ---
+        const modal = document.getElementById("about-modal");
+        const btn = document.getElementById("more-about-btn");
+        const span = document.getElementById("close-modal-btn");
+
+        btn.onclick = function() {
+            modal.style.display = "block";
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                    modal.classList.add('show');
+                });
+            });
+        }
+
+        span.onclick = function() {
+            modal.classList.remove('show');
+            setTimeout(() => modal.style.display = "none", 300);
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.classList.remove('show');
+                setTimeout(() => modal.style.display = "none", 300);
+            }
+        }
+    </script>
+
+</body>
+</html>

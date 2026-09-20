@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PBSMUN 2026 conference guides, venue, applications, and schedule.">
+    <title>The Conference | PBSMUN</title>
+    <link rel="icon" type="image/png" href="1_1770817820402_2cg59.png">
+    <link rel="stylesheet" href="https://fontlibrary.org/face/xb-niloofar">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+         :root {
+            --navy-blue: #161a29;
+            --light-navy: #1f253a;
+            --gold: #d4c08b;
+            --white: #fff;
+            --gold-shadow: rgba(212, 192, 139, .3);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 88px;
+        }
+        
+        body {
+            overflow-x: hidden;
+            background: var(--navy-blue);
+            color: var(--white);
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+        }
+        
+        body::-webkit-scrollbar {
+            width: 10px;
+            background: var(--navy-blue);
+        }
+        
+        body::-webkit-scrollbar-thumb {
+            background: var(--gold);
+            border-radius: 5px;
+        }
+        
+        h1,
+        h2,
+        h3 {
+            font-family: 'XBNiloofarRegular', Georgia, serif;
+            font-weight: normal;
+        }
+        
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 76px;
+            padding: .85rem 5%;
+            background: rgba(31, 37, 58, .96);
+            border-bottom: 1px solid rgba(212, 192, 139, .2);
+            backdrop-filter: blur(14px);
+        }
+        
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: .75rem;
+            color: var(--white);
+            font-family: 'XBNiloofarRegular', Georgia, serif;
+            font-size: 1.35rem;
+            letter-spacing: 1px;
+            text-decoration: none;
+        }
+        
+        .nav-logo img {
+            width: auto;
+            height: 42px;
+        }
+        
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: clamp(.85rem, 1.8vw, 1.8rem);
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: var(--white);
+            font-size: .82rem;
+            font-weight: 600;
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: color 180ms ease;
+        }
+        
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--gold);
+        }
+        
+        .dropdown {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        
+        .dropdown-content {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            z-index: 1001;
+            min-width: 260px;
+            margin-top: 15px;
+            padding: .4rem;
+            visibility: hidden;
+            opacity: 0;
+            transform: translate(-50%, 12px);
+            background: rgba(31, 37, 58, .99);
+            border: 1px solid rgba(212, 192, 139, .2);
+            border-radius: 6px;
+            box-shadow: 0 18px 50px rgba(0, 0, 0, .3);
+            transition: opacity 180ms ease, transform 180ms ease, visibility 180ms;
+        }
+        
+        .dropdown-content a {
+            display: block;
+            padding: .8rem 1rem;
+            border-bottom: 1px solid rgba(212, 192, 139, .1);
+            font-size: .78rem;
+        }
+        
+        .dropdown-content a:last-child {
+            border-bottom: 0;
+        }
+        
+        .dropdown-content a:hover {
+            background: rgba(212, 192, 139, .08);
+        }
+        
+        .hamburger {
+            display: none;
+            width: 44px;
+            height: 44px;
+            place-items: center;
+            color: var(--gold);
+            border: 1px solid rgba(212, 192, 139, .2);
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1.45rem;
+        }
+        
+        @media (min-width:769px) {
+            .dropdown:hover .dropdown-content,
+            .dropdown:focus-within .dropdown-content {
+                visibility: visible;
+                opacity: 1;
+                transform: translate(-50%, 0);
+            }
+        }
+        
+        .hero {
+            display: grid;
+            min-height: 470px;
+            padding: 5rem 1.5rem;
+            place-items: center;
+            text-align: center;
+            background: linear-gradient(rgba(22, 26, 41, .84), rgba(22, 26, 41, .94)), url('https://static01.nyt.com/images/2019/09/27/world/un-explainer1/un-explainer1-articleLarge.jpg?quality=75&auto=webp&disable=upscale') center 38%/cover;
+            border-bottom: 1px solid rgba(212, 192, 139, .2);
+        }
+        
+        .hero-inner {
+            width: min(760px, 100%);
+        }
+        
+        .eyebrow {
+            margin-bottom: .9rem;
+            color: var(--gold);
+            font-size: .78rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        
+        .hero-title {
+            font-size: 4rem;
+            line-height: 1.05;
+        }
+        
+        .hero-copy {
+            max-width: 620px;
+            margin: 1.25rem auto 0;
+            color: rgba(255, 255, 255, .72);
+            font-size: 1rem;
+        }
+        
+        .quick-nav {
+            border-bottom: 1px solid rgba(212, 192, 139, .12);
+            background: var(--light-navy);
+        }
+        
+        .quick-nav-inner {
+            display: flex;
+            width: min(1120px, calc(100% - 2.5rem));
+            margin: 0 auto;
+            overflow-x: auto;
+        }
+        
+        .quick-nav a {
+            flex: 1;
+            min-width: 150px;
+            padding: 1.15rem;
+            color: rgba(255, 255, 255, .7);
+            border-right: 1px solid rgba(212, 192, 139, .1);
+            font-size: .78rem;
+            font-weight: 700;
+            text-align: center;
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: color 180ms ease, background 180ms ease;
+        }
+        
+        .quick-nav a:first-child {
+            border-left: 1px solid rgba(212, 192, 139, .1);
+        }
+        
+        .quick-nav a:hover {
+            color: var(--gold);
+            background: rgba(212, 192, 139, .05);
+        }
+        
+        .page-section {
+            padding: 5.5rem max(1.25rem, calc((100% - 1120px)/2));
+        }
+        
+        .page-section.alt {
+            background: var(--light-navy);
+        }
+        
+        #guides {
+            position: relative;
+            isolation: isolate;
+            background: var(--navy-blue);
+        }
+        
+        #guides::before {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            inset: 0;
+            background: url('https://framerusercontent.com/images/ofqW9upMhy9yG8Z1L44vkDhMsqw.webp') center / cover no-repeat;
+            filter: grayscale(1);
+            opacity: .12;
+        }
+        
+        #guides::after {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            inset: 0;
+            background: rgba(22, 26, 41, .36);
+        }
+        
+        .section-heading {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(260px, 460px);
+            gap: 2rem;
+            align-items: end;
+            margin-bottom: 2.5rem;
+        }
+        
+        .section-kicker {
+            display: block;
+            margin-bottom: .55rem;
+            color: var(--gold);
+            font-size: .72rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+        
+        .section-heading h2 {
+            font-size: 2.65rem;
+            line-height: 1.1;
+        }
+        
+        .section-heading p {
+            color: rgba(255, 255, 255, .65);
+            font-size: .92rem;
+        }
+        
+        .guide-group+.guide-group {
+            margin-top: 3rem;
+        }
+        
+        .group-title {
+            margin-bottom: 1rem;
+            color: var(--gold);
+            font-family: 'Montserrat', sans-serif;
+            font-size: .76rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+        
+        .guide-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1rem;
+        }
+        
+        .guide-card {
+            display: flex;
+            flex-direction: column;
+            min-height: 205px;
+            padding: 1.5rem;
+            background: var(--light-navy);
+            border: 1px solid rgba(212, 192, 139, .18);
+            border-radius: 7px;
+            box-shadow: 0 14px 35px rgba(0, 0, 0, .18);
+            transition: transform 180ms ease, border-color 180ms ease;
+        }
+        
+        .alt .guide-card {
+            background: var(--navy-blue);
+        }
+        
+        .guide-card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(212, 192, 139, .48);
+        }
+        
+        .guide-number {
+            color: rgba(212, 192, 139, .7);
+            font-size: .72rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        
+        .guide-card h3 {
+            margin: .8rem 0 .45rem;
+            font-size: 1.45rem;
+            line-height: 1.2;
+        }
+        
+        .guide-card p {
+            flex: 1;
+            color: rgba(255, 255, 255, .58);
+            font-size: .82rem;
+        }
+        
+        .status {
+            align-self: flex-start;
+            margin-top: 1.2rem;
+            padding: .35rem .55rem;
+            color: rgba(255, 255, 255, .55);
+            border: 1px solid rgba(255, 255, 255, .14);
+            border-radius: 4px;
+            font-size: .65rem;
+            font-weight: 700;
+            letter-spacing: .8px;
+            text-transform: uppercase;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1.15fr .85fr;
+            gap: 1.25rem;
+        }
+        
+        .feature-panel {
+            min-height: 330px;
+            padding: 2.5rem;
+            background: var(--navy-blue);
+            border: 1px solid rgba(212, 192, 139, .2);
+            border-radius: 7px;
+        }
+        
+        .location-panel {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            background: linear-gradient(rgba(22, 26, 41, .78), rgba(22, 26, 41, .94)), url('https://spea.shj.ae/media/uc1pyzr3/s384.webp') center / cover no-repeat;
+            box-shadow: inset 0 3px 0 rgba(212, 192, 139, .7);
+        }
+        
+        .panel-label {
+            color: var(--gold);
+            font-size: .7rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+        
+        .feature-panel h2 {
+            margin: .7rem 0 .6rem;
+            font-size: 2.3rem;
+            line-height: 1.1;
+        }
+        
+        .feature-panel p {
+            max-width: 560px;
+            color: rgba(255, 255, 255, .68);
+            font-size: .9rem;
+        }
+        
+        .text-link {
+            display: inline-flex;
+            align-items: center;
+            gap: .55rem;
+            align-self: flex-start;
+            margin-top: 1.6rem;
+            padding: .8rem 1rem;
+            color: var(--navy-blue);
+            background: var(--gold);
+            border: 1px solid var(--gold);
+            border-radius: 5px;
+            font-size: .78rem;
+            font-weight: 700;
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: background 180ms ease, transform 180ms ease;
+        }
+        
+        .text-link:hover {
+            background: var(--white);
+            border-color: var(--white);
+            transform: translateY(-2px);
+        }
+        
+        .schedule-panel {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .schedule-panel>* {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .schedule-panel .panel-brand {
+            position: absolute;
+            right: 1.25rem;
+            bottom: 1rem;
+            z-index: 0;
+            width: 64px;
+            height: auto;
+            opacity: .72;
+            filter: drop-shadow(0 6px 12px rgba(0, 0, 0, .2));
+            pointer-events: none;
+        }
+        
+        .application-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1rem;
+        }
+        
+        .application-card {
+            display: flex;
+            flex-direction: column;
+            min-height: 270px;
+            padding: 1.75rem;
+            color: var(--white);
+            background: var(--navy-blue);
+            border: 1px solid rgba(212, 192, 139, .18);
+            border-radius: 7px;
+            text-decoration: none;
+            transition: transform 180ms ease, border-color 180ms ease;
+        }
+        
+        .application-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--gold);
+        }
+        
+        .application-index {
+            color: var(--gold);
+            font-size: .72rem;
+            font-weight: 700;
+        }
+        
+        .application-card h3 {
+            margin: 1.5rem 0 .6rem;
+            font-size: 1.75rem;
+        }
+        
+        .application-card p {
+            flex: 1;
+            color: rgba(255, 255, 255, .6);
+            font-size: .86rem;
+        }
+        
+        .application-link {
+            margin-top: 1.5rem;
+            color: var(--gold);
+            font-size: .72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 600ms ease, transform 600ms ease;
+        }
+        
+        .scroll-reveal.show {
+            opacity: 1;
+            transform: none;
+        }
+        
+        footer {
+            padding: 2.5rem 1.5rem;
+            color: rgba(255, 255, 255, .58);
+            border-top: 1px solid rgba(212, 192, 139, .2);
+            text-align: center;
+            font-size: .85rem;
+        }
+        
+        @media (max-width:900px) {
+            .section-heading {
+                grid-template-columns: 1fr;
+                gap: .75rem;
+            }
+            .guide-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width:768px) {
+            nav {
+                min-height: 70px;
+                padding: .75rem 1.1rem;
+            }
+            .nav-logo img {
+                height: 38px;
+            }
+            .hamburger {
+                display: grid;
+            }
+            .nav-links {
+                position: absolute;
+                top: 70px;
+                left: 0;
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                max-height: calc(100vh - 70px);
+                padding: .65rem 1rem 1.25rem;
+                overflow-y: auto;
+                gap: 0;
+                background: rgba(31, 37, 58, .99);
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .nav-links li {
+                width: 100%;
+                text-align: center;
+            }
+            .nav-links a {
+                display: block;
+                padding: .85rem;
+            }
+            .dropdown {
+                flex-direction: column;
+            }
+            .dropdown-content {
+                position: relative;
+                top: 0;
+                left: 0;
+                display: none;
+                width: 100%;
+                min-width: 0;
+                margin: 0;
+                visibility: visible;
+                opacity: 1;
+                transform: none;
+                border: 0;
+                box-shadow: none;
+            }
+            .dropdown-content.show {
+                display: block;
+            }
+            .hero {
+                min-height: 390px;
+                padding: 4rem 1.25rem;
+            }
+            .hero-title {
+                font-size: 2.65rem;
+            }
+            .page-section {
+                padding-top: 4rem;
+                padding-bottom: 4rem;
+            }
+            .section-heading h2 {
+                font-size: 2.15rem;
+            }
+            .guide-grid,
+            .application-grid {
+                grid-template-columns: 1fr;
+            }
+            .guide-card {
+                min-height: 180px;
+            }
+            .feature-panel {
+                min-height: 300px;
+                padding: 2rem 1.5rem;
+            }
+        }
+        
+        @media (max-width:420px) {
+            .hero-title {
+                font-size: 2.25rem;
+            }
+        }
+        
+        @media (prefers-reduced-motion:reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+            *,
+            *::before,
+            *::after {
+                animation-duration: .01ms!important;
+                transition-duration: .01ms!important;
+            }
+            .scroll-reveal {
+                opacity: 1;
+                transform: none;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="site-polish.css">
+</head>
+
+<body>
+    <nav aria-label="Primary navigation">
+        <a href="index.html" class="nav-logo"><img src="1_1770817820402_2cg59.png" alt="PBSMUN logo">PBSMUN</a>
+        <div class="hamburger" onclick="toggleMenu()" role="button" tabindex="0" aria-label="Toggle navigation menu" aria-controls="nav-menu">&#9776;</div>
+        <ul class="nav-links" id="nav-menu">
+            <li><a href="index.html" onclick="closeMenu()">Home</a></li>
+            <li><a href="guides.html" class="active" aria-current="page" onclick="closeMenu()">The Conference</a></li>
+            <li><a href="schedule.html" onclick="closeMenu()">Schedule</a></li>
+            <li><a href="index.html#about" onclick="closeMenu()">About</a></li>
+            <li><a href="index.html#team" onclick="closeMenu()">Team</a></li>
+            <li><a href="index.html#contact" onclick="closeMenu()">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-inner scroll-reveal">
+            <p class="eyebrow">PBSMUN 2026</p>
+            <h1 class="hero-title">The Conference</h1>
+            <p class="hero-copy">Everything delegates, chairs, and staff need to prepare for PBSMUN, gathered in one clear place.</p>
+        </div>
+    </header>
+
+    <div class="quick-nav" aria-label="Page sections">
+        <div class="quick-nav-inner"><a href="#guides">Guides</a><a href="#venue">Location</a><a href="#applications">Applications</a><a href="schedule.html">Schedule</a></div>
+    </div>
+
+    <main>
+        <section class="page-section" id="guides">
+            <div class="section-heading scroll-reveal">
+                <div><span class="section-kicker">Prepare with confidence</span>
+                    <h2>Conference Guides</h2>
+                </div>
+                <p>Official materials will be published here as they are approved. Each guide will cover procedures, research expectations, and committee-specific preparation.</p>
+            </div>
+            <div class="guide-group scroll-reveal">
+                <h3 class="group-title">General Resources</h3>
+                <div class="guide-grid">
+                    <article class="guide-card"><span class="guide-number">RESOURCE 01</span>
+                        <h3>Delegate Guide</h3>
+                        <p>Rules of procedure, debate structure, motions, resolutions, and preparation essentials.</p><span class="status">Coming Soon</span></article>
+                    <article class="guide-card"><span class="guide-number">RESOURCE 02</span>
+                        <h3>Conference Booklet</h3>
+                        <p>A infographic booklet to let you know all details about the conference.</p><span class="status">Coming Soon</span></article>
+                    <article class="guide-card"><span class="guide-number">RESOURCE 03</span>
+                        <h3>Chair Guide</h3>
+                        <p>A guide for chairs to make their commitee sessions most effective.</p><span class="status">Coming Soon</span></article>
+                </div>
+            </div>
+            <div class="guide-group scroll-reveal">
+                <h3 class="group-title">Committee Background Guides</h3>
+                <div class="guide-grid">
+                    <article class="guide-card"><span class="guide-number">BEGINNER</span>
+                        <h3>WHO</h3>
+                        <p>World Health Organization committee background guide and topic research.</p><span class="status">Coming Soon</span></article>
+                    <article class="guide-card"><span class="guide-number">BEGINNER</span>
+                        <h3>ECOSOC</h3>
+                        <p>Economic and Social Council committee background guide and topic research.</p><span class="status">Coming Soon</span></article>
+                    <article class="guide-card"><span class="guide-number">BEGINNER</span>
+                        <h3>DISEC</h3>
+                        <p>Disarmament and International Security Committee background guide and topic research.</p><span class="status">Coming Soon</span></article>
+                    <article class="guide-card"><span class="guide-number">INTERMEDIATE</span>
+                        <h3>CCPCJ</h3>
+                        <p>Commission on Crime Prevention and Criminal Justice background guide and topic research.</p><span class="status">Coming Soon</span></article>
+                    <article class="guide-card"><span class="guide-number">INTERMEDIATE</span>
+                        <h3>UNICEF</h3>
+                        <p>United Nations Children's Fund committee background guide and topic research.</p><span class="status">Coming Soon</span></article>
+                    <article class="guide-card"><span class="guide-number">INTERMEDIATE</span>
+                        <h3>UNW</h3>
+                        <p>UN Women committee background guide and topic research.</p><span class="status">Coming Soon</span></article>
+                    <article class="guide-card"><span class="guide-number">INTERMEDIATE</span>
+                        <h3>F1</h3>
+                        <p>Formula 1 committee background guide and topic research.</p><span class="status">Coming Soon</span></article>
+                    <article class="guide-card"><span class="guide-number">ADVANCED</span>
+                        <h3>UNSC</h3>
+                        <p>United Nations Security Council background guide and topic research.</p><span class="status">Coming Soon</span></article>
+                    <article class="guide-card"><span class="guide-number">ADVANCED</span>
+                        <h3>IAEA</h3>
+                        <p>International Atomic Energy Agency background guide and topic research.</p><span class="status">Coming Soon</span></article>
+                </div>
+            </div>
+        </section>
+
+        <section class="page-section alt" id="venue">
+            <div class="section-heading scroll-reveal">
+                <div><span class="section-kicker">Plan your visit</span>
+                    <h2>Location &amp; Schedule</h2>
+                </div>
+                <p>Find the conference venue and review the full three-day programme before arriving.</p>
+            </div>
+            <div class="feature-grid">
+                <article class="feature-panel location-panel scroll-reveal"><span class="panel-label">Conference Venue</span>
+                    <h2>Pace British School</h2>
+                    <p>Sharjah, United Arab Emirates. Open the venue in Google Maps for directions.</p><a class="text-link" href="https://maps.app.goo.gl/dM8TZMoVG9Do9rC99" target="_blank" rel="noopener noreferrer">View on Maps <span aria-hidden="true">&#8599;</span></a></article>
+                <article class="feature-panel schedule-panel scroll-reveal">
+                    <img class="panel-brand" src="1_1770817820402_2cg59.png" alt="PBSMUN logo" loading="lazy" decoding="async">
+                    <span class="panel-label">Three-day programme</span>
+                    <h2>Conference Schedule</h2>
+                    <p>Review registration, committee sessions, breaks, ceremonies, and social events across all three conference days.</p><a class="text-link" href="schedule.html">View Schedule <span aria-hidden="true">&#8594;</span></a>
+                </article>
+            </div>
+        </section>
+
+        <section class="page-section" id="applications">
+            <div class="section-heading scroll-reveal">
+                <div><span class="section-kicker">Join PBSMUN</span>
+                    <h2>Applications</h2>
+                </div>
+                <p>Choose the role that best matches how you want to take part in the conference.</p>
+            </div>
+            <div class="application-grid">
+                <a class="application-card scroll-reveal" href="delegate-app.html"><span class="application-index">01 / PARTICIPATE</span><h3>Delegate Applications</h3><p>Represent a country, debate global issues, negotiate with fellow delegates, and draft meaningful resolutions.</p><span class="application-link">View Delegate Applications &#8594;</span></a>
+                <a class="application-card scroll-reveal" href="chair-app.html"><span class="application-index">02 / LEAD</span><h3>Chair Applications</h3><p>Guide committee debate, uphold procedure, and create a focused, rewarding experience for delegates.</p><span class="application-link">View Chair Applications &#8594;</span></a>
+                <a class="application-card scroll-reveal" href="staff-app.html"><span class="application-index">03 / SUPPORT</span><h3>Staff Applications</h3><p>Help deliver the conference through logistics, media, operations, and participant support.</p><span class="application-link">View Staff Applications &#8594;</span></a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 Pace British School Model United Nations. All rights reserved. Website Made by Manuel Dieudon , Mohammed Shabaz and Advit Pankaj. </p>
+    </footer>
+    <script>
+        const menu = document.getElementById('nav-menu');
+        function toggleMenu() {
+            if (window.innerWidth <= 768) menu.classList.toggle('active');
+        }
+
+        function closeMenu() {
+            if (window.innerWidth <= 768) {
+                menu.classList.remove('active');
+            }
+        }
+
+        document.querySelector('.hamburger').addEventListener('keydown', (event) => {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                toggleMenu();
+            }
+        });
+        const observer = new IntersectionObserver((entries) => entries.forEach((entry) => {
+            if (entry.isIntersecting) entry.target.classList.add('show');
+        }), {
+            threshold: .08
+        });
+        document.querySelectorAll('.scroll-reveal').forEach((element) => observer.observe(element));
+    </script>
+</body>
+
+</html>
