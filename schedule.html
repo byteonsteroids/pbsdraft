@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The official three-day PBSMUN 2026 conference schedule.">
+    <title>Conference Schedule | PBSMUN '26</title>
+    <link rel="icon" type="image/png" href="1_1770817820402_2cg59.png">
+    <link rel="stylesheet" href="https://fontlibrary.org/face/xb-niloofar">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+         :root {
+            --navy-blue: #161a29;
+            --light-navy: #1f253a;
+            --gold: #d4c08b;
+            --white: #fff;
+            --gold-shadow: rgba(212, 192, 139, .3);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 96px;
+        }
+        
+        body {
+            min-height: 100vh;
+            overflow-x: hidden;
+            background: var(--navy-blue);
+            color: var(--white);
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+        }
+        
+        body::-webkit-scrollbar {
+            width: 10px;
+            background: var(--navy-blue);
+        }
+        
+        body::-webkit-scrollbar-thumb {
+            background: var(--gold);
+            border-radius: 5px;
+        }
+        
+        h1,
+        h2,
+        h3 {
+            font-family: 'XBNiloofarRegular', Georgia, serif;
+            font-weight: normal;
+        }
+        
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 5%;
+            background: var(--light-navy);
+            border-bottom: 1px solid rgba(212, 192, 139, .2);
+        }
+        
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--white);
+            font-family: 'XBNiloofarRegular', Georgia, serif;
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+            text-decoration: none;
+        }
+        
+        .nav-logo img {
+            width: auto;
+            height: 40px;
+        }
+        
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: var(--white);
+            font-weight: 600;
+            text-decoration: none;
+            transition: color 180ms ease;
+        }
+        
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--gold);
+        }
+        
+        .dropdown {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        
+        .dropdown-content {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            z-index: 1001;
+            min-width: 260px;
+            margin-top: 15px;
+            overflow: hidden;
+            visibility: hidden;
+            opacity: 0;
+            transform: translate(-50%, 12px);
+            background: var(--light-navy);
+            border: 1px solid rgba(212, 192, 139, .25);
+            transition: opacity 180ms ease, transform 180ms ease, visibility 180ms;
+        }
+        
+        .dropdown-content a {
+            display: block;
+            padding: 14px 20px;
+            border-bottom: 1px solid rgba(212, 192, 139, .12);
+        }
+        
+        .dropdown-content a:last-child {
+            border-bottom: 0;
+        }
+        
+        .dropdown-content a:hover {
+            background: rgba(212, 192, 139, .08);
+        }
+        
+        .hamburger {
+            display: none;
+            color: var(--gold);
+            cursor: pointer;
+            user-select: none;
+        }
+        
+        @media (min-width:769px) {
+            .dropdown:hover .dropdown-content,
+            .dropdown:focus-within .dropdown-content {
+                visibility: visible;
+                opacity: 1;
+                transform: translate(-50%, 0);
+            }
+        }
+        
+        .schedule-hero {
+            display: grid;
+            min-height: 430px;
+            padding: 5.5rem 1.5rem;
+            place-items: center;
+            text-align: center;
+            background: linear-gradient(rgba(22, 26, 41, .86), rgba(22, 26, 41, .94)), url('https://static01.nyt.com/images/2019/09/27/world/un-explainer1/un-explainer1-articleLarge.jpg?quality=75&auto=webp&disable=upscale') center 40%/cover;
+        }
+        
+        .hero-inner {
+            width: min(760px, 100%);
+        }
+        
+        .hero-kicker {
+            margin-bottom: .85rem;
+            color: var(--gold);
+            font-size: .78rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        
+        .hero-title {
+            font-size: 4rem;
+            line-height: 1.05;
+        }
+        
+        .hero-subtitle {
+            margin-top: 1rem;
+            color: rgba(255, 255, 255, .75);
+            font-size: 1rem;
+        }
+        
+        /* ===== Schedule redesign (nav + hero above are unchanged) ===== */
+        :root { --ease: cubic-bezier(.22, 1, .36, 1); --line: rgba(212, 192, 139, .22); }
+
+        .schedule-main { position: relative; isolation: isolate; width: min(1120px, calc(100% - 2.5rem)); margin: 0 auto; padding: 2.5rem 0 6rem; }
+        .schedule-main::before { content: ""; position: absolute; z-index: -1; top: -60px; left: 50%; width: 1000px; height: 560px; transform: translateX(-50%); background: radial-gradient(closest-side, rgba(212, 192, 139, .09), transparent); }
+
+        /* view controls */
+        .controls { position: sticky; top: calc(var(--nav-h, 73px) + 14px); z-index: 50; display: flex; flex-wrap: wrap; justify-content: center; gap: .75rem; margin-bottom: 2rem; pointer-events: none; }
+        .seg, .switch { pointer-events: auto; background: rgba(31, 37, 58, .88); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border: 1px solid var(--line); border-radius: 999px; box-shadow: 0 10px 30px rgba(0, 0, 0, .28); }
+        .seg { position: relative; display: inline-grid; grid-auto-flow: column; grid-auto-columns: 1fr; padding: 4px; }
+        .seg button { position: relative; z-index: 1; padding: .55rem 1.15rem; border: 0; border-radius: 999px; background: none; color: rgba(255, 255, 255, .72); font: 600 .82rem 'Montserrat', sans-serif; cursor: pointer; transition: color .25s ease; }
+        .seg button:hover { color: var(--white); }
+        .seg button[aria-pressed="true"], .seg button[aria-pressed="true"]:hover { color: var(--navy-blue); }
+        .seg button:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+        .seg-pill { position: absolute; top: 4px; bottom: 4px; left: 0; width: var(--w, 0); transform: translateX(var(--x, 4px)); border-radius: 999px; background: var(--gold); transition: transform .45s var(--ease), width .45s var(--ease); }
+        .switch { position: relative; display: inline-flex; align-items: center; gap: .65rem; padding: 0 1.1rem 0 .85rem; color: rgba(255, 255, 255, .8); font-size: .82rem; font-weight: 600; cursor: pointer; user-select: none; }
+        .switch:focus-within { outline: 2px solid var(--gold); outline-offset: 2px; }
+        .switch input { position: absolute; opacity: 0; pointer-events: none; }
+        .track { position: relative; width: 34px; height: 20px; border-radius: 20px; background: rgba(255, 255, 255, .16); transition: background .3s ease; }
+        .track::after { content: ""; position: absolute; top: 3px; left: 3px; width: 14px; height: 14px; border-radius: 50%; background: var(--white); transition: transform .35s var(--ease), background .3s ease; }
+        .switch input:checked + .track { background: var(--gold); }
+        .switch input:checked + .track::after { transform: translateX(14px); background: var(--navy-blue); }
+
+        /* day cards */
+        .schedule-days { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; align-items: start; }
+        .schedule-days:not([data-view="all"]) { grid-template-columns: minmax(0, 640px); justify-content: center; }
+        .day-section { container: day / inline-size; position: relative; overflow: hidden; background: linear-gradient(180deg, #232a45, var(--light-navy) 45%); border: 1px solid var(--line); border-radius: 14px; box-shadow: 0 20px 50px rgba(0, 0, 0, .28); transition: transform .45s var(--ease), border-color .3s ease, box-shadow .3s ease; }
+        .day-section[hidden] { display: none; }
+        .day-section.show:hover { transform: translateY(-4px); border-color: rgba(212, 192, 139, .5); box-shadow: 0 28px 60px rgba(0, 0, 0, .38); }
+        .day-section::before { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: 0; background: radial-gradient(380px circle at var(--mx, 50%) var(--my, 0), rgba(212, 192, 139, .1), transparent 65%); transition: opacity .35s ease; }
+        .day-section:hover::before { opacity: 1; }
+
+        .day-heading { position: relative; z-index: 1; overflow: hidden; padding: 1.75rem 1.5rem 1.5rem 1.75rem; text-align: left; background: linear-gradient(180deg, rgba(22, 26, 41, .72), rgba(22, 26, 41, .2)); border-bottom: 1px solid var(--line); }
+        .day-heading::after { position: absolute; top: -.2rem; right: 1.1rem; color: transparent; -webkit-text-stroke: 1px rgba(212, 192, 139, .28); font-family: 'XBNiloofarRegular', Georgia, serif; font-size: 6.5rem; line-height: 1; pointer-events: none; transition: transform .6s var(--ease), -webkit-text-stroke-color .3s ease; }
+        #day-1 .day-heading::after { content: "01" / ""; }
+        #day-2 .day-heading::after { content: "02" / ""; }
+        #day-3 .day-heading::after { content: "03" / ""; }
+        .day-section:hover .day-heading::after { transform: translateY(5px) scale(1.05); -webkit-text-stroke-color: rgba(212, 192, 139, .55); }
+        .day-number { display: block; margin-bottom: .5rem; color: var(--gold); font-size: .72rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; }
+        .day-title { color: var(--white); font-size: 2.4rem; font-weight: 700; line-height: 1.1; }
+        .day-date { display: inline-block; margin-top: .9rem; padding: .2rem .8rem; border: 1px dashed rgba(212, 192, 139, .5); border-radius: 999px; color: var(--gold); font-size: .7rem; letter-spacing: 1.2px; text-transform: uppercase; }
+
+        /* timeline */
+        .agenda { position: relative; z-index: 1; list-style: none; padding: .4rem 0 .8rem; }
+        .agenda-item { --pt: .95rem; --c: calc(var(--pt) + .65rem); position: relative; display: grid; gap: .1rem; align-items: center; min-height: 0; max-height: 160px; overflow: hidden; padding: var(--pt) 1.25rem .95rem 3.6rem; border: 0; opacity: 0; transition: max-height .5s var(--ease), padding .5s var(--ease), opacity .35s ease, background .2s ease; }
+        .agenda-item:hover { background: rgba(212, 192, 139, .06); }
+        .agenda-item::before { content: ""; box-sizing: border-box; position: absolute; z-index: 1; left: 2.1rem; top: var(--c); width: 11px; height: 11px; translate: -50% -50%; border-radius: 50%; background: var(--light-navy); border: 2px solid var(--gold); transition: scale .3s var(--ease), box-shadow .3s ease; }
+        .agenda-item::after { content: ""; position: absolute; left: 2.1rem; top: 0; bottom: 0; width: 2px; translate: -50% 0; background: var(--line); transform-origin: top; }
+        .agenda-item:first-child::after { top: var(--c); }
+        .agenda-item:last-child::after { bottom: auto; height: var(--c); }
+        .agenda-item:hover::before { scale: 1.4; box-shadow: 0 0 0 5px rgba(212, 192, 139, .16); }
+        .agenda-time { display: block; color: var(--gold); font-size: .82rem; font-weight: 700; line-height: 1.3rem; font-variant-numeric: tabular-nums; transition: color .2s ease; }
+        .agenda-item:hover .agenda-time { color: #f1e6c4; }
+        .agenda-activity { display: block; font-size: 1rem; font-weight: 500; line-height: 1.4; transition: translate .3s var(--ease); }
+        .agenda-item:hover .agenda-activity { translate: 4px 0; }
+        .agenda-bar { display: block; height: 3px; margin-top: .55rem; overflow: hidden; border-radius: 3px; background: rgba(212, 192, 139, .12); }
+        .agenda-bar i { display: block; width: calc(var(--w, 0) * 100%); height: 100%; border-radius: 3px; background: linear-gradient(90deg, var(--gold), #efe2b6); transform-origin: left; }
+
+        .agenda-item.break { --pt: .65rem; padding-bottom: .65rem; }
+        .agenda-item.break::before { width: 7px; height: 7px; border: 0; background: rgba(212, 192, 139, .45); }
+        .agenda-item.break .agenda-activity { color: rgba(255, 255, 255, .58); font-size: .92rem; font-style: italic; font-weight: 400; }
+        .agenda-item.break .agenda-time { color: rgba(212, 192, 139, .68); }
+        .agenda-item.break .agenda-bar i { background: rgba(212, 192, 139, .45); }
+
+        .agenda-item.featured { --pt: 1.15rem; padding-bottom: 1.15rem; box-shadow: none; background: linear-gradient(90deg, rgba(212, 192, 139, .13), rgba(212, 192, 139, .02) 80%); }
+        .agenda-item.featured:hover { background: linear-gradient(90deg, rgba(212, 192, 139, .2), rgba(212, 192, 139, .04) 80%); }
+        .agenda-item.featured::before { width: 15px; height: 15px; background: var(--gold); box-shadow: 0 0 0 5px rgba(212, 192, 139, .16); }
+        .agenda-item.featured:hover::before { box-shadow: 0 0 0 7px rgba(212, 192, 139, .26); }
+        .agenda-item.featured .agenda-activity { font-family: 'XBNiloofarRegular', Georgia, serif; font-size: 1.3rem; font-weight: normal; line-height: 1.25; }
+
+        .agenda.hide-breaks .agenda-item.break { max-height: 0; padding-top: 0; padding-bottom: 0; opacity: 0; }
+
+        /* a wider card (single-day view) lays each row out as time | activity */
+        @container day (min-width: 520px) {
+            .agenda-item { grid-template-columns: 9.5rem 1fr; column-gap: 1rem; padding-left: 4rem; }
+            .agenda-time { grid-row: 1 / span 2; }
+            .agenda-bar { grid-column: 2; margin-top: .25rem; }
+        }
+
+        /* entrance: card, then the line draws down while rows and bars follow */
+        .scroll-reveal { opacity: 0; }
+        .scroll-reveal.show { opacity: 1; animation: cardIn .7s var(--ease) backwards; }
+        .day-section.show .agenda-item { opacity: 1; animation: rise .6s var(--ease) backwards; animation-delay: calc(var(--i, 0) * 75ms + 150ms); }
+        .day-section.show .agenda-item::after { animation: draw .45s var(--ease) backwards; animation-delay: calc(var(--i, 0) * 75ms + 250ms); }
+        .day-section.show .agenda-bar i { animation: grow .9s var(--ease) backwards; animation-delay: calc(var(--i, 0) * 75ms + 450ms); }
+        @keyframes cardIn { from { opacity: 0; transform: translateY(24px); } }
+        @keyframes rise { from { opacity: 0; transform: translateX(-16px); } }
+        @keyframes draw { from { transform: scaleY(0); } }
+        @keyframes grow { from { transform: scaleX(0); } }
+
+        footer { position: relative; padding: 2.25rem 1.5rem; color: rgba(255, 255, 255, .5); text-align: center; font-size: .82rem; }
+        footer::before { content: ""; position: absolute; top: 0; left: 50%; width: min(520px, 70%); height: 1px; transform: translateX(-50%); background: linear-gradient(90deg, transparent, var(--gold), transparent); opacity: .5; }
+
+        @media (max-width:1000px) {
+            .schedule-days { grid-template-columns: minmax(0, 680px); justify-content: center; }
+        }
+
+        @media (max-width:600px) {
+            .controls { position: static; flex-direction: column; align-items: stretch; }
+            .seg { display: grid; grid-template-columns: repeat(4, 1fr); }
+            .seg button { padding: .6rem .25rem; }
+            .switch { justify-content: center; padding: .6rem 1rem; }
+            .day-title { font-size: 2.1rem; }
+            .day-heading::after { font-size: 5rem; }
+        }
+
+        @media (prefers-reduced-motion:reduce) {
+            *, *::before, *::after { animation-delay: 0s!important; transition-delay: 0s!important; }
+            .agenda-item { opacity: 1; }
+        }
+
+        
+        @media (max-width:768px) {
+            .hamburger {
+                display: grid;
+            }
+            .nav-links {
+                position: absolute;
+                top: 70px;
+                left: 0;
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                padding: 1rem;
+                background: var(--light-navy);
+                border-bottom: 1px solid rgba(212, 192, 139, .2);
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .nav-links li {
+                width: 100%;
+                text-align: center;
+            }
+            .dropdown {
+                flex-direction: column;
+            }
+            .dropdown-content {
+                position: relative;
+                top: 0;
+                left: 0;
+                display: none;
+                width: 100%;
+                min-width: 0;
+                margin-top: .5rem;
+                visibility: visible;
+                opacity: 1;
+                transform: none;
+                border: 0;
+                box-shadow: none;
+            }
+            .dropdown-content.show {
+                display: block;
+            }
+            .schedule-hero {
+                min-height: 360px;
+                padding: 4.5rem 1.25rem;
+            }
+            .hero-title {
+                font-size: 2.65rem;
+            }
+            .schedule-main {
+                width: min(100% - 2rem, 680px);
+                padding: 3rem 0 4rem;
+            }
+            .schedule-days {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width:420px) {
+            .hero-title {
+                font-size: 2.25rem;
+            }
+        }
+        
+        @media (prefers-reduced-motion:reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+            *,
+            *::before,
+            *::after {
+                animation-duration: .01ms!important;
+                transition-duration: .01ms!important;
+            }
+            .scroll-reveal {
+                opacity: 1;
+                transform: none;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="site-polish.css">
+    <noscript><style>.scroll-reveal,.agenda-item{opacity:1!important}</style></noscript>
+</head>
+
+<body>
+    <nav aria-label="Primary navigation">
+        <a href="index.html" class="nav-logo"><img src="1_1770817820402_2cg59.png" alt="PBSMUN logo">PBSMUN</a>
+        <div class="hamburger" onclick="toggleMenu()" role="button" tabindex="0" aria-label="Toggle navigation menu" aria-controls="nav-menu">&#9776;</div>
+        <ul class="nav-links" id="nav-menu">
+            <li><a href="index.html" onclick="closeMenu()">Home</a></li>
+            <li><a href="guides.html" onclick="closeMenu()">The Conference</a></li>
+            <li><a href="schedule.html" class="active" aria-current="page" onclick="closeMenu()">Schedule</a></li>
+            <li><a href="index.html#about" onclick="closeMenu()">About</a></li>
+            <li><a href="index.html#team" onclick="closeMenu()">Team</a></li>
+            <li><a href="index.html#contact" onclick="closeMenu()">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <header class="schedule-hero">
+        <div class="hero-inner">
+            <p class="hero-kicker">PBSMUN 2026</p>
+            <h1 class="hero-title">Conference Schedule</h1>
+            <p class="hero-subtitle">Three days of diplomacy, debate, collaboration, and leadership</p>
+        </div>
+    </header>
+
+    <main class="schedule-main">
+        <div class="controls">
+            <div class="seg" role="group" aria-label="Choose which days to show">
+                <span class="seg-pill" aria-hidden="true"></span>
+                <button type="button" data-view="all" aria-pressed="true">All days</button>
+                <button type="button" data-view="1" aria-pressed="false">Day 1</button>
+                <button type="button" data-view="2" aria-pressed="false">Day 2</button>
+                <button type="button" data-view="3" aria-pressed="false">Day 3</button>
+            </div>
+            <label class="switch"><input type="checkbox" id="breaks" checked><span class="track" aria-hidden="true"></span>Show breaks</label>
+        </div>
+        <div class="schedule-days" id="days" data-view="all">
+            <section class="day-section scroll-reveal" id="day-1" aria-labelledby="day-1-title">
+                <div class="day-heading"><span class="day-number">Conference Day 01</span>
+                    <h2 class="day-title" id="day-1-title">Day 1</h2>
+                    <p class="day-date">TBC</p>
+                </div>
+                <ol class="agenda">
+                    <li class="agenda-item featured"><time class="agenda-time">1:30 - 2:30 PM</time><span class="agenda-activity">Registration &amp; Check-in</span></li>
+                    <li class="agenda-item featured"><time class="agenda-time">2:30 - 4:15 PM</time><span class="agenda-activity">Opening Ceremony</span></li>
+                    <li class="agenda-item"><time class="agenda-time">4:15 - 5:15 PM</time><span class="agenda-activity">Committee Session 1</span></li>
+                    <li class="agenda-item break"><time class="agenda-time">5:15 - 6:00 PM</time><span class="agenda-activity">Refreshment Break</span></li>
+                    <li class="agenda-item"><time class="agenda-time">6:00 - 6:45 PM</time><span class="agenda-activity">Committee Session 2</span></li>
+                    <li class="agenda-item"><time class="agenda-time">6:45 - 7:00 PM</time><span class="agenda-activity">Debrief, Announcements &amp; Wrap-up</span></li>
+                </ol>
+            </section>
+            <section class="day-section scroll-reveal" id="day-2" aria-labelledby="day-2-title">
+                <div class="day-heading"><span class="day-number">Conference Day 02</span>
+                    <h2 class="day-title" id="day-2-title">Day 2</h2>
+                    <p class="day-date">TBC</p>
+                </div>
+                <ol class="agenda">
+                    <li class="agenda-item"><time class="agenda-time">8:00 - 8:30 AM</time><span class="agenda-activity">Arrival</span></li>
+                    <li class="agenda-item"><time class="agenda-time">8:30 - 9:30 AM</time><span class="agenda-activity">Committee Session 3</span></li>
+                    <li class="agenda-item break"><time class="agenda-time">9:30 - 10:30 AM</time><span class="agenda-activity">Refreshment Break</span></li>
+                    <li class="agenda-item"><time class="agenda-time">10:30 AM - 12:00 PM</time><span class="agenda-activity">Committee Session 4</span></li>
+                    <li class="agenda-item break"><time class="agenda-time">12:00 - 1:00 PM</time><span class="agenda-activity">Refreshment / Lunch Break</span></li>
+                    <li class="agenda-item"><time class="agenda-time">1:00 - 2:30 PM</time><span class="agenda-activity">Committee Session 5</span></li>
+                    <li class="agenda-item break"><time class="agenda-time">2:30 - 3:00 PM</time><span class="agenda-activity">Break</span></li>
+                    <li class="agenda-item"><time class="agenda-time">3:00 - 4:00 PM</time><span class="agenda-activity">Committee Session 6</span></li>
+                    <li class="agenda-item featured"><time class="agenda-time">4:00 - 6:00 PM</time><span class="agenda-activity">Social Evening &amp; Dinner</span></li>
+                </ol>
+            </section>
+            <section class="day-section scroll-reveal" id="day-3" aria-labelledby="day-3-title">
+                <div class="day-heading"><span class="day-number">Conference Day 03</span>
+                    <h2 class="day-title" id="day-3-title">Day 3</h2>
+                    <p class="day-date">TBC</p>
+                </div>
+                <ol class="agenda">
+                    <li class="agenda-item"><time class="agenda-time">8:00 - 8:30 AM</time><span class="agenda-activity">Arrival</span></li>
+                    <li class="agenda-item"><time class="agenda-time">8:30 - 9:30 AM</time><span class="agenda-activity">Committee Session 7</span></li>
+                    <li class="agenda-item break"><time class="agenda-time">9:30 - 10:30 AM</time><span class="agenda-activity">Refreshment Break</span></li>
+                    <li class="agenda-item"><time class="agenda-time">10:30 - 11:45 AM</time><span class="agenda-activity">Committee Session 8</span></li>
+                    <li class="agenda-item break"><time class="agenda-time">11:45 AM - 12:30 PM</time><span class="agenda-activity">Break</span></li>
+                    <li class="agenda-item"><time class="agenda-time">12:30 - 1:45 PM</time><span class="agenda-activity">Committee Session 9</span></li>
+                    <li class="agenda-item"><time class="agenda-time">1:45 - 2:00 PM</time><span class="agenda-activity">Arrival to Auditorium</span></li>
+                    <li class="agenda-item featured"><time class="agenda-time">2:00 - 3:30 PM</time><span class="agenda-activity">Award Ceremony</span></li>
+                </ol>
+            </section>
+        </div>
+    </main>
+    <footer>
+        <p>© 2026 Pace British School Model United Nations. All rights reserved. Website Made by Manuel Dieudon , Mohammed Shabaz and Advit Pankaj. </p>
+    </footer>
+    <script>
+        const menu = document.getElementById('nav-menu');
+        function toggleMenu() {
+            if (window.innerWidth <= 768) menu.classList.toggle('active');
+        }
+
+        function closeMenu() {
+            if (window.innerWidth <= 768) {
+                menu.classList.remove('active');
+            }
+        }
+
+        document.querySelector('.hamburger').addEventListener('keydown', (event) => {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                toggleMenu();
+            }
+        });
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) entry.target.classList.add('show');
+            });
+        }, {
+            threshold: .08
+        });
+        document.querySelectorAll('.scroll-reveal').forEach((element) => observer.observe(element));
+
+        /* ---- schedule enhancements ---- */
+        const nav = document.querySelector('nav');
+        const setNavH = () => document.documentElement.style.setProperty('--nav-h', nav.offsetHeight + 'px');
+        setNavH();
+        addEventListener('resize', setNavH);
+
+        // stagger index + duration bar (fixed scale: full bar = 2 hours, so days compare)
+        const toMin = (h, m, p) => (h % 12) * 60 + Number(m) + (p === 'PM' ? 720 : 0);
+        document.querySelectorAll('.agenda-item').forEach((li) => {
+            li.style.setProperty('--i', [...li.parentElement.children].indexOf(li));
+            const m = li.querySelector('.agenda-time').textContent.match(/(\d+):(\d+)\s*(AM|PM)?\s*[-–]\s*(\d+):(\d+)\s*(AM|PM)/);
+            if (!m) return;
+            const end = toMin(+m[4], m[5], m[6]);
+            let start = toMin(+m[1], m[2], m[3] || m[6]);
+            if (start > end) start = toMin(+m[1], m[2], m[6] === 'AM' ? 'PM' : 'AM');
+            const bar = document.createElement('span');
+            bar.className = 'agenda-bar';
+            bar.setAttribute('aria-hidden', 'true');
+            bar.innerHTML = '<i></i>';
+            bar.firstChild.style.setProperty('--w', Math.min(1, (end - start) / 120));
+            li.append(bar);
+        });
+
+        // day switcher
+        const days = document.getElementById('days');
+        const sections = [...days.children];
+        const segBtns = [...document.querySelectorAll('.seg button')];
+        const pill = document.querySelector('.seg-pill');
+        const placePill = () => {
+            const b = document.querySelector('.seg [aria-pressed="true"]');
+            pill.style.setProperty('--x', b.offsetLeft + 'px');
+            pill.style.setProperty('--w', b.offsetWidth + 'px');
+        };
+        function setView(v) {
+            segBtns.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.view === v)));
+            days.dataset.view = v;
+            placePill();
+            sections.forEach((s) => {
+                const on = v === 'all' || s.id === 'day-' + v;
+                s.hidden = !on;
+                s.classList.remove('show');
+                if (on) { void s.offsetWidth; s.classList.add('show'); }
+            });
+        }
+        segBtns.forEach((b) => b.addEventListener('click', () => setView(b.dataset.view)));
+        placePill();
+        addEventListener('resize', placePill);
+        if (document.fonts) document.fonts.ready.then(placePill);
+
+        // show / hide breaks
+        document.getElementById('breaks').addEventListener('change', (e) => {
+            document.querySelectorAll('.agenda').forEach((a) => a.classList.toggle('hide-breaks', !e.target.checked));
+        });
+
+        // soft spotlight that follows the pointer
+        sections.forEach((s) => s.addEventListener('pointermove', (e) => {
+            const r = s.getBoundingClientRect();
+            s.style.setProperty('--mx', e.clientX - r.left + 'px');
+            s.style.setProperty('--my', e.clientY - r.top + 'px');
+        }));
+    </script>
+</body>
+
+</html>

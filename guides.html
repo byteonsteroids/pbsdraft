@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="PBSMUN 2026 conference guides, venue, applications, and schedule.">
+    <meta name="description" content="PBSMUN 2026 conference guides, venue, and schedule.">
     <title>The Conference | PBSMUN</title>
     <link rel="icon" type="image/png" href="1_1770817820402_2cg59.png">
     <link rel="stylesheet" href="https://fontlibrary.org/face/xb-niloofar">
@@ -314,16 +314,22 @@
             grid-template-columns: repeat(3, minmax(0, 1fr));
             gap: 1rem;
         }
+
+        .general-resources-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
         
         .guide-card {
             display: flex;
             flex-direction: column;
             min-height: 205px;
             padding: 1.5rem;
+            color: var(--white);
             background: var(--light-navy);
             border: 1px solid rgba(212, 192, 139, .18);
             border-radius: 7px;
             box-shadow: 0 14px 35px rgba(0, 0, 0, .18);
+            text-decoration: none;
             transition: transform 180ms ease, border-color 180ms ease;
         }
         
@@ -366,6 +372,12 @@
             font-weight: 700;
             letter-spacing: .8px;
             text-transform: uppercase;
+        }
+
+        .status.available {
+            color: var(--navy-blue);
+            background: var(--gold);
+            border-color: var(--gold);
         }
         
         .feature-grid {
@@ -457,55 +469,6 @@
             opacity: .72;
             filter: drop-shadow(0 6px 12px rgba(0, 0, 0, .2));
             pointer-events: none;
-        }
-        
-        .application-grid {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 1rem;
-        }
-        
-        .application-card {
-            display: flex;
-            flex-direction: column;
-            min-height: 270px;
-            padding: 1.75rem;
-            color: var(--white);
-            background: var(--navy-blue);
-            border: 1px solid rgba(212, 192, 139, .18);
-            border-radius: 7px;
-            text-decoration: none;
-            transition: transform 180ms ease, border-color 180ms ease;
-        }
-        
-        .application-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--gold);
-        }
-        
-        .application-index {
-            color: var(--gold);
-            font-size: .72rem;
-            font-weight: 700;
-        }
-        
-        .application-card h3 {
-            margin: 1.5rem 0 .6rem;
-            font-size: 1.75rem;
-        }
-        
-        .application-card p {
-            flex: 1;
-            color: rgba(255, 255, 255, .6);
-            font-size: .86rem;
-        }
-        
-        .application-link {
-            margin-top: 1.5rem;
-            color: var(--gold);
-            font-size: .72rem;
-            font-weight: 700;
-            text-transform: uppercase;
         }
         
         .scroll-reveal {
@@ -609,8 +572,7 @@
             .section-heading h2 {
                 font-size: 2.15rem;
             }
-            .guide-grid,
-            .application-grid {
+            .guide-grid {
                 grid-template-columns: 1fr;
             }
             .guide-card {
@@ -670,7 +632,7 @@
     </header>
 
     <div class="quick-nav" aria-label="Page sections">
-        <div class="quick-nav-inner"><a href="#guides">Guides</a><a href="#venue">Location</a><a href="#applications">Applications</a><a href="schedule.html">Schedule</a></div>
+        <div class="quick-nav-inner"><a href="#guides">Guides</a><a href="#venue">Location</a><a href="schedule.html">Schedule</a></div>
     </div>
 
     <main>
@@ -683,48 +645,45 @@
             </div>
             <div class="guide-group scroll-reveal">
                 <h3 class="group-title">General Resources</h3>
-                <div class="guide-grid">
-                    <article class="guide-card"><span class="guide-number">RESOURCE 01</span>
+                <div class="guide-grid general-resources-grid">
+                    <a class="guide-card" href="Delegate%20Guide.docx" download><span class="guide-number">RESOURCE 01</span>
                         <h3>Delegate Guide</h3>
-                        <p>Rules of procedure, debate structure, motions, resolutions, and preparation essentials.</p><span class="status">Coming Soon</span></article>
-                    <article class="guide-card"><span class="guide-number">RESOURCE 02</span>
-                        <h3>Conference Booklet</h3>
-                        <p>A infographic booklet to let you know all details about the conference.</p><span class="status">Coming Soon</span></article>
-                    <article class="guide-card"><span class="guide-number">RESOURCE 03</span>
+                        <p>Rules of procedure, debate structure, motions, resolutions, and preparation essentials.</p><span class="status available">Download Guide &#8595;</span></a>
+                    <a class="guide-card" href="https://drive.google.com/" target="_blank" rel="noopener noreferrer"><span class="guide-number">RESOURCE 02</span>
                         <h3>Chair Guide</h3>
-                        <p>A guide for chairs to make their commitee sessions most effective.</p><span class="status">Coming Soon</span></article>
+                        <p>A guide for chairs to make their committee sessions most effective.</p><span class="status available">Open Chair Guide &#8599;</span></a>
                 </div>
             </div>
             <div class="guide-group scroll-reveal">
                 <h3 class="group-title">Committee Background Guides</h3>
                 <div class="guide-grid">
-                    <article class="guide-card"><span class="guide-number">BEGINNER</span>
+                    <a class="guide-card" href="WHO%20PBS%20GUIDE.docx" download><span class="guide-number">BEGINNER</span>
                         <h3>WHO</h3>
-                        <p>World Health Organization committee background guide and topic research.</p><span class="status">Coming Soon</span></article>
-                    <article class="guide-card"><span class="guide-number">BEGINNER</span>
+                        <p>World Health Organization committee background guide and topic research.</p><span class="status available">Download Guide &#8595;</span></a>
+                    <a class="guide-card" href="ECOSOC%20PBS%20GUIDE.docx" download><span class="guide-number">BEGINNER</span>
                         <h3>ECOSOC</h3>
-                        <p>Economic and Social Council committee background guide and topic research.</p><span class="status">Coming Soon</span></article>
-                    <article class="guide-card"><span class="guide-number">BEGINNER</span>
+                        <p>Economic and Social Council committee background guide and topic research.</p><span class="status available">Download Guide &#8595;</span></a>
+                    <a class="guide-card" href="DISEC%20PBS%20GUIDE.pdf"><span class="guide-number">BEGINNER</span>
                         <h3>DISEC</h3>
-                        <p>Disarmament and International Security Committee background guide and topic research.</p><span class="status">Coming Soon</span></article>
-                    <article class="guide-card"><span class="guide-number">INTERMEDIATE</span>
+                        <p>Disarmament and International Security Committee background guide and topic research.</p><span class="status available">Open Guide &#8594;</span></a>
+                    <a class="guide-card" href="CCPCJ%20PBS%20GUIDE.docx" download><span class="guide-number">INTERMEDIATE</span>
                         <h3>CCPCJ</h3>
-                        <p>Commission on Crime Prevention and Criminal Justice background guide and topic research.</p><span class="status">Coming Soon</span></article>
-                    <article class="guide-card"><span class="guide-number">INTERMEDIATE</span>
+                        <p>Commission on Crime Prevention and Criminal Justice background guide and topic research.</p><span class="status available">Download Guide &#8595;</span></a>
+                    <a class="guide-card" href="UNICEF%20PBS%20GUIDE.docx" download><span class="guide-number">INTERMEDIATE</span>
                         <h3>UNICEF</h3>
-                        <p>United Nations Children's Fund committee background guide and topic research.</p><span class="status">Coming Soon</span></article>
-                    <article class="guide-card"><span class="guide-number">INTERMEDIATE</span>
+                        <p>United Nations Children's Fund committee background guide and topic research.</p><span class="status available">Download Guide &#8595;</span></a>
+                    <a class="guide-card" href="UNW%20PBS%20GUIDE.docx" download><span class="guide-number">INTERMEDIATE</span>
                         <h3>UNW</h3>
-                        <p>UN Women committee background guide and topic research.</p><span class="status">Coming Soon</span></article>
-                    <article class="guide-card"><span class="guide-number">INTERMEDIATE</span>
+                        <p>UN Women committee background guide and topic research.</p><span class="status available">Download Guide &#8595;</span></a>
+                    <a class="guide-card" href="F1%20Committee%20Guide.docx" download><span class="guide-number">INTERMEDIATE</span>
                         <h3>F1</h3>
-                        <p>Formula 1 committee background guide and topic research.</p><span class="status">Coming Soon</span></article>
-                    <article class="guide-card"><span class="guide-number">ADVANCED</span>
+                        <p>Formula 1 committee background guide and topic research.</p><span class="status available">Download Guide &#8595;</span></a>
+                    <a class="guide-card" href="UNSC%20PBS%20GUIDE.docx" download><span class="guide-number">ADVANCED</span>
                         <h3>UNSC</h3>
-                        <p>United Nations Security Council background guide and topic research.</p><span class="status">Coming Soon</span></article>
-                    <article class="guide-card"><span class="guide-number">ADVANCED</span>
+                        <p>United Nations Security Council background guide and topic research.</p><span class="status available">Download Guide &#8595;</span></a>
+                    <a class="guide-card" href="IAEA%20PBS%20GUIDE.pdf"><span class="guide-number">ADVANCED</span>
                         <h3>IAEA</h3>
-                        <p>International Atomic Energy Agency background guide and topic research.</p><span class="status">Coming Soon</span></article>
+                        <p>International Atomic Energy Agency background guide and topic research.</p><span class="status available">Open Guide &#8594;</span></a>
                 </div>
             </div>
         </section>
@@ -749,19 +708,6 @@
             </div>
         </section>
 
-        <section class="page-section" id="applications">
-            <div class="section-heading scroll-reveal">
-                <div><span class="section-kicker">Join PBSMUN</span>
-                    <h2>Applications</h2>
-                </div>
-                <p>Choose the role that best matches how you want to take part in the conference.</p>
-            </div>
-            <div class="application-grid">
-                <a class="application-card scroll-reveal" href="delegate-app.html"><span class="application-index">01 / PARTICIPATE</span><h3>Delegate Applications</h3><p>Represent a country, debate global issues, negotiate with fellow delegates, and draft meaningful resolutions.</p><span class="application-link">View Delegate Applications &#8594;</span></a>
-                <a class="application-card scroll-reveal" href="chair-app.html"><span class="application-index">02 / LEAD</span><h3>Chair Applications</h3><p>Guide committee debate, uphold procedure, and create a focused, rewarding experience for delegates.</p><span class="application-link">View Chair Applications &#8594;</span></a>
-                <a class="application-card scroll-reveal" href="staff-app.html"><span class="application-index">03 / SUPPORT</span><h3>Staff Applications</h3><p>Help deliver the conference through logistics, media, operations, and participant support.</p><span class="application-link">View Staff Applications &#8594;</span></a>
-            </div>
-        </section>
     </main>
 
     <footer>
